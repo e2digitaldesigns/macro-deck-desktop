@@ -32,7 +32,7 @@ export const UlRight = styled(Ul)`
   text-align: right;
 
   li {
-    padding: 6px 10px 0;
+    padding: 4px 12px 0;
     &:last-child:hover {
       background: #d41224;
     }
