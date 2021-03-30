@@ -1,0 +1,43 @@
+html {
+  font: $fontSize;
+  user-select: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  background-color: $pageBgColor;
+  overflow: hidden;
+  background-image: url("../images/black_mamba.png");
+}
+
+@mixin sectionDefaults() {
+  height: 100%;
+  border-bottom: 0.125rem solid $accentColor;
+  background-color: rgba($sectionBgColor, 0.3);
+  overflow: hidden;
+}
+
+.template-wrapper {
+  // height: calc(100vh - (#{$wrapperMarginTop} * 2));
+  height: calc(100vh - 4rem);
+  min-width: $applicationWidth;
+  margin: $wrapperMarginTop auto;
+  display: grid;
+  grid-template-columns: minmax($sideBarLeftWidth, $sideBarLeftWidth + 5rem) auto;
+
+  .template-side-bar-left,
+  .template-main-content {
+    transition: width 0.75s;
+    @include sectionDefaults();
+  }
+
+  .template-side-bar-left {
+    margin-left: $wrapperMarginTop/2;
+  }
+
+  .template-main-content {
+    margin-right: $wrapperMarginTop/2;
+    margin-left: $wrapperMarginTop/2;
+  }
+}

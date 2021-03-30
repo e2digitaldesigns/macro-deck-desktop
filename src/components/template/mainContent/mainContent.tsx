@@ -8,9 +8,11 @@ const MainContent: React.FC<MainContentProps> = () => {
 
   return (
     <>
-      <div data-testid="template-main-content-component">
-        <h1>MainContent</h1>
-        <h1>{gInfo?.userInformation?.name}</h1>
+      <div
+        className="template-main-content"
+        data-testid="template-main-content-component"
+      >
+        <h1>MainContent Header Bar XSX</h1>
       </div>
     </>
   );

@@ -29,7 +29,9 @@ exports[`<Template Header Component/> Should match snapshot 1`] = `
     class="sc-gsTCUz sc-dlfnbm flOpgs dsKvub"
     data-testid="template-header-options"
   >
-    <li>
+    <li
+      data-testid="template-header-minimize-button"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -42,11 +44,13 @@ exports[`<Template Header Component/> Should match snapshot 1`] = `
         />
       </svg>
     </li>
-    <li>
+    <li
+      data-testid="template-header-full-screen-button"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-        data-testid="template-header-full-screen"
+        data-testid="FullscreenIcon"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -55,7 +59,9 @@ exports[`<Template Header Component/> Should match snapshot 1`] = `
         />
       </svg>
     </li>
-    <li>
+    <li
+      data-testid="template-header-full-close-button"
+    >
       <svg
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
