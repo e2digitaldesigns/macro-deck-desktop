@@ -4,15 +4,30 @@ import { Close, Fullscreen, FullscreenExit, Remove } from "@material-ui/icons";
 import { Header, Ul, UlRight } from "./headerStyles";
 
 export interface ITemplateHeader {
-  closeApplication?: () => void;
-  fullScreenToggleApplication?: () => void;
-  minimizeApplication?: () => void;
+  closeApplication: () => void;
+  fullScreenToggleApplication: (action: boolean) => void;
+  minimizeApplication: () => void;
 }
 
-const TemplateHeader: React.FC<ITemplateHeader> = ({ ...props }) => {
+const TemplateHeader: React.FC<ITemplateHeader> = ({
+  closeApplication,
+  fullScreenToggleApplication,
+  minimizeApplication
+}) => {
   const [fullScreenState, setFullScreenState] = React.useState<boolean>(false);
-  const handleCloseApplication = (): void => {};
-  const handleMinimizeApplication = (): void => {};
+
+  const handleCloseApplication = (): void => {
+    closeApplication();
+  };
+
+  const handleFullScreenToggle = (action: boolean): void => {
+    setFullScreenState(action);
+    fullScreenToggleApplication(action);
+  };
+
+  const handleMinimizeApplication = (): void => {
+    minimizeApplication();
+  };
 
   return (
     <>
@@ -26,24 +41,33 @@ const TemplateHeader: React.FC<ITemplateHeader> = ({ ...props }) => {
         </Ul>
 
         <UlRight data-testid="template-header-options">
-          <li>
-            <Remove onClick={handleMinimizeApplication} />
+          <li
+            data-testid="template-header-minimize-button"
+            onClick={handleMinimizeApplication}
+          >
+            <Remove />
           </li>
-          <li>
-            {fullScreenState ? (
-              <FullscreenExit
-                data-testid="template-header-full-screen-exit"
-                onClick={() => setFullScreenState(false)}
-              />
-            ) : (
-              <Fullscreen
-                data-testid="template-header-full-screen"
-                onClick={() => setFullScreenState(true)}
-              />
-            )}
-          </li>
-          <li>
-            <Close onClick={handleCloseApplication} />
+
+          {fullScreenState ? (
+            <li
+              data-testid="template-header-full-screen-exit-button"
+              onClick={() => handleFullScreenToggle(false)}
+            >
+              <FullscreenExit />{" "}
+            </li>
+          ) : (
+            <li
+              data-testid="template-header-full-screen-button"
+              onClick={() => handleFullScreenToggle(true)}
+            >
+              <Fullscreen />
+            </li>
+          )}
+          <li
+            data-testid="template-header-full-close-button"
+            onClick={handleCloseApplication}
+          >
+            <Close />
           </li>
         </UlRight>
       </Header>

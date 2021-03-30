@@ -1,30 +1,79 @@
 import "@testing-library/jest-dom";
-import { render, fireEvent } from "@testing-library/react";
-import TemplateHeader from "./header";
+import { render, fireEvent, waitFor } from "@testing-library/react";
+import TemplateHeader, { ITemplateHeader } from "./header";
+
+const mockFunction: ITemplateHeader = {
+  closeApplication: jest.fn(),
+  fullScreenToggleApplication: jest.fn(),
+  minimizeApplication: jest.fn()
+};
+
+const testSetup = (props: ITemplateHeader = mockFunction) => {
+  return render(<TemplateHeader {...props} />);
+};
+
+let container: any = null;
+beforeEach(() => {
+  container = testSetup();
+});
+
+afterEach(() => {
+  container = null;
+});
 
 describe("<Template Header Component/>", () => {
   it("Should render without errors", () => {
-    const { getByTestId } = render(<TemplateHeader />);
-    const component = getByTestId("template-header-component");
-    expect(component).toBeTruthy();
+    const header = container.getByTestId("template-header-component");
+    expect(header).toBeTruthy();
 
-    const fullScreenButton = getByTestId("template-header-full-screen");
+    const fullScreenButton = container.getByTestId(
+      "template-header-full-screen-button"
+    );
     expect(fullScreenButton).toBeVisible();
+
+    const minimizeButton = container.getByTestId(
+      "template-header-minimize-button"
+    );
+    expect(minimizeButton).toBeVisible();
   });
 
   it("Should match snapshot", () => {
-    const { getByTestId } = render(<TemplateHeader />);
-    const component = getByTestId("template-header-component");
-    expect(component).toMatchSnapshot();
+    const header = container.getByTestId("template-header-component");
+    expect(header).toMatchSnapshot();
   });
 
-  it("fullScreenExitButton should be visible", () => {
-    const { getByTestId } = render(<TemplateHeader />);
-    const fullScreenButton = getByTestId("template-header-full-screen");
-    fireEvent.click(fullScreenButton);
-    const fullScreenExitButton = getByTestId(
-      "template-header-full-screen-exit"
+  it("Should call fullScreenToggle", () => {
+    const fullScreenButton = container.getByTestId(
+      "template-header-full-screen-button"
     );
-    expect(fullScreenExitButton).toBeVisible();
+    fireEvent.click(fullScreenButton);
+    expect(mockFunction.fullScreenToggleApplication).toHaveBeenCalledTimes(1);
+
+    const fullScreenExitButton = container.getByTestId(
+      "template-header-full-screen-exit-button"
+    );
+
+    waitFor(() => {
+      expect(fullScreenExitButton).toBeVisible();
+    });
+
+    fireEvent.click(fullScreenExitButton);
+    expect(mockFunction.fullScreenToggleApplication).toHaveBeenCalledTimes(2);
+
+    expect(fullScreenButton).toBeVisible();
+  });
+
+  it("Should call minimizeApplication", () => {
+    const button = container.getByTestId("template-header-minimize-button");
+    expect(button).toBeVisible();
+    fireEvent.click(button);
+    expect(mockFunction.minimizeApplication).toHaveBeenCalledTimes(1);
+  });
+
+  it("Should call closeApplication", () => {
+    const button = container.getByTestId("template-header-full-close-button");
+    expect(button).toBeVisible();
+    fireEvent.click(button);
+    expect(mockFunction.closeApplication).toHaveBeenCalledTimes(1);
   });
 });
