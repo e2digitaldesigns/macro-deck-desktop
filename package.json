@@ -16,7 +16,6 @@
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
     "@types/react-redux": "^7.1.15",
-    "@types/shortid": "0.0.29",
     "check-prop-types": "^1.1.2",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
@@ -57,8 +56,10 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^7.0.5",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/shortid": "0.0.29",
     "@types/styled-components": "^5.1.9",
     "cypress": "^6.8.0",
     "enzyme": "^3.11.0",

@@ -2,35 +2,27 @@
 }
 
 .template-main-content {
-  .profile-header {
-    display: grid;
-    grid-template-columns: auto 15rem;
-    font-size: 0.9375rem;
-    font-weight: bold;
-    line-height: 2rem;
-    text-shadow: 0.75px 0.75px #000;
-    margin: 0.25rem 0.25rem 0.5rem 0.25rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    text-transform: uppercase;
-    border-left: 0.25rem solid darken($accentColor, 30);
-    background-color: $accentColor;
-    overflow: hidden;
-    > .primary-header-title {
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    > .primary-header-options {
-      text-align: right;
-      select {
-        @include selectField();
-        padding: 0.25rem 0.25rem;
-        margin: 0;
-        max-width: 3rem;
-        background-color: #333;
-        border-radius: 0.25rem;
-      }
-    }
+  width: 64rem;
+  height: 100%;
+  background-color: aqua;
+  display: grid;
+  grid-template-rows: 30.75rem auto;
+}
+
+.button-pad-wrapper {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(7rem, 1fr));
+  grid-gap: 0.5rem;
+  overflow: hidden;
+
+  .button-pad {
+    min-width: 7rem;
+    min-height: 6.75rem;
+    background-color: rgba($sectionBgColor, 0.9);
   }
+}
+
+.main-content-button-pad-options {
+  margin-top: 0.5rem;
+  background-color: #333;
 }

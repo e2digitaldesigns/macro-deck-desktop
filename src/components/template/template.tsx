@@ -12,20 +12,20 @@ const PrimaryTemplate: React.FC<ITemplateWrapperProps> = () => {
 
   return (
     <>
-      <div data-testid="template-wrapper-component">
+      <section data-testid="template-wrapper-section">
         <Header
           closeApplication={closeApplication}
           fullScreenToggleApplication={fullScreenToggleApplication}
           minimizeApplication={minimizeApplication}
         />
-        <div className="template-wrapper">
+        <div className="application-template-wrapper">
           <div className="template-side-bar-left">
             <SideBar />
           </div>
 
           <MainContent />
         </div>
-      </div>
+      </section>
     </>
   );
 };

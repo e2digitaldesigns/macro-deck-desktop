@@ -16,15 +16,15 @@ body {
   border-bottom: 0.125rem solid $accentColor;
   background-color: rgba($sectionBgColor, 0.3);
   overflow: hidden;
+  padding: 0.5rem;
 }
 
-.template-wrapper {
-  // height: calc(100vh - (#{$wrapperMarginTop} * 2));
+.application-template-wrapper {
   height: calc(100vh - 4rem);
   min-width: $applicationWidth;
-  margin: $wrapperMarginTop auto;
+  margin: 0.5rem auto;
   display: grid;
-  grid-template-columns: minmax($sideBarLeftWidth, $sideBarLeftWidth + 5rem) auto;
+  grid-template-columns: 15rem auto;
 
   .template-side-bar-left,
   .template-main-content {
@@ -33,11 +33,10 @@ body {
   }
 
   .template-side-bar-left {
-    margin-left: $wrapperMarginTop/2;
+    margin-left: 0.5rem;
   }
 
   .template-main-content {
-    margin-right: $wrapperMarginTop/2;
-    margin-left: $wrapperMarginTop/2;
+    margin: 0 0.5rem;
   }
 }

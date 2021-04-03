@@ -1,0 +1,85 @@
+{
+  "userInformation": { "_id": "xxx", "name": "Mark Bell" },
+  "templateInformation": { "sideBarState": "true" },
+  "settings": {},
+  "activeProfile": {
+    "_id": "",
+    "index": 0,
+    "page": { "_id": "", "index": 0 },
+    "buttonPad": { "_id": "", "index": 0 }
+  },
+  "profiles": [
+    {
+      "_id": "profile-id-001",
+      "profileName": "0 - 6Mas",
+      "buttonPads": 6,
+      "pages": [
+        {
+          "_id": "page-id-0001",
+          "buttonPads": [
+            {
+              "buttonPadNum": 1,
+              "_id": "0002",
+              "text": "Button 001",
+              "icon": "",
+              "image": "",
+              "bgColor": "#ff0000",
+              "actions": [{ "order": 1, "delay": 0 }]
+            },
+            {
+              "buttonPadNum": 2,
+              "_id": "2323",
+              "text": "Button 002",
+              "icon": "",
+              "image": "",
+              "bgColor": "#ff0000",
+              "actions": [{ "order": 1, "delay": 0 }]
+            }
+          ]
+        },
+        { "_id": "0002", "buttonPads": [] },
+        { "_id": "0003", "buttonPads": [] }
+      ]
+    },
+
+    {
+      "_id": "11111",
+      "profileName": "1 - 8 em up",
+      "buttonPads": 8,
+      "pages": [{ "_id": "0011", "buttonPads": [] }]
+    },
+
+    {
+      "_id": "22222",
+      "profileName": "2 - Dozen",
+      "buttonPads": 12,
+      "pages": [{ "_id": "22223", "buttonPads": [] }]
+    },
+
+    {
+      "_id": "33333",
+      "profileName": "3 - iCON Program",
+      "buttonPads": 15,
+      "pages": [{ "_id": "33334", "buttonPads": [] }]
+    },
+
+    {
+      "_id": "44444",
+      "profileName": "4 - Glamizon Youtube",
+      "buttonPads": 24,
+      "pages": []
+    },
+
+    {
+      "_id": "55555",
+      "profileName": "5 - Stream Decker",
+      "buttonPads": 32,
+      "pages": [
+        {
+          "_id": "66666",
+          "buttonPads": []
+        }
+      ]
+    }
+  ]
+}
