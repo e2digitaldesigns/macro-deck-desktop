@@ -47,7 +47,12 @@ const useProfile = (): UseButtonProfileProps => {
       _id: shortid.generate(),
       profileName: "New Profile",
       buttonPads: 12,
-      pages: []
+      pages: [
+        {
+          _id: shortid.generate(),
+          buttonPads: []
+        }
+      ]
     };
 
     newState?.profiles && newState?.profiles.push(newProfile);
