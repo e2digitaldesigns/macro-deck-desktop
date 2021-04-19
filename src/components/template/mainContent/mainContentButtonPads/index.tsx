@@ -4,7 +4,7 @@ import _range from "lodash/range";
 
 import { buttonMapper } from "./buttonMapper";
 
-import useProfile from "../../../../hooks/useProfile/useButtonProfile";
+import { useProfile } from "../../../../hooks";
 import ButtonPadParser from "./functions/buttonPadParser";
 
 export interface MainContentButtonPadsProps {}
@@ -14,7 +14,7 @@ const MainContentButtonPads: React.FC<MainContentButtonPadsProps> = () => {
   const { readProfile } = useProfile();
   const profile = readProfile();
 
-  const buttonPadParserNumbering = (padNumber: number): any => {
+  const buttonPadParserNumbering = (padNumber: number): number => {
     const padCount: number | undefined = profile?.buttonPads;
 
     const data =
@@ -30,12 +30,14 @@ const MainContentButtonPads: React.FC<MainContentButtonPadsProps> = () => {
   return (
     <>
       <div className="button-pad-wrapper">
-        {_map(buttonPadArray, m => (
-          <div key={m} className="button-pad">
-            {m}
-            <ButtonPadParser padNumber={buttonPadParserNumbering(m)} />
-          </div>
-        ))}
+        {_map(
+          buttonPadArray,
+          (m: number): React.ReactElement => (
+            <div key={m} className="button-pad">
+              <ButtonPadParser padNumber={buttonPadParserNumbering(m)} />
+            </div>
+          )
+        )}
       </div>
     </>
   );

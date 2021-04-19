@@ -4,30 +4,30 @@ import _find from "lodash/find";
 import _findIndex from "lodash/findIndex";
 import shortid from "shortid";
 
-import { useGlobalData } from "./../../hooks";
-import { iButtonsProfile } from "../useGlobalData/globalContext";
+import { useGlobalData } from "..";
+import { IntButtonsProfile } from "../../types";
 
 import useHelper from "../helper";
 
-export interface intEditState {
+export interface IntEditState {
   editing: boolean;
   profileName: string | undefined;
   buttonPads: number | undefined;
 }
 
-export interface UseButtonProfileProps {
+export interface IntUseProfileHook {
   activateProfile: (_id: string) => void;
   createProfile: () => void;
-  readProfile: () => iButtonsProfile | undefined;
-  updateProfile: (_id: string, state: intEditState) => void;
+  readProfile: () => IntButtonsProfile | undefined;
+  updateProfile: (_id: string, state: IntEditState) => void;
   deleteProfile: (_id: string) => void;
 }
 
-const useProfile = (): UseButtonProfileProps => {
+const useProfileHook = (): IntUseProfileHook => {
   const globalData: any = useGlobalData();
   const { getProfileIndex } = useHelper();
 
-  const activateProfile = (_id: string): void => {
+  const activateProfile: IntUseProfileHook["activateProfile"] = (_id): void => {
     const newState = _cloneDeep(globalData?.state);
     const profile = _find(newState.profiles, { _id });
 
@@ -43,11 +43,11 @@ const useProfile = (): UseButtonProfileProps => {
 
   const createProfile = () => {
     const newState = _cloneDeep(globalData?.state);
-    const newProfile: iButtonsProfile = {
+    const newProfile: IntButtonsProfile = {
       _id: shortid.generate(),
       profileName: "New Profile",
       buttonPads: 12,
-      pages: []
+      pages: [{ _id: shortid.generate(), buttonPads: [] }]
     };
 
     newState?.profiles && newState?.profiles.push(newProfile);
@@ -64,7 +64,7 @@ const useProfile = (): UseButtonProfileProps => {
     return undefined;
   };
 
-  const updateProfile = (_id: string, state: intEditState): void => {
+  const updateProfile = (_id: string, state: IntEditState): void => {
     const newState = _cloneDeep(globalData?.state);
     const index = _findIndex(newState.profiles, (f: any) => {
       return f._id === _id;
@@ -100,4 +100,4 @@ const useProfile = (): UseButtonProfileProps => {
   };
 };
 
-export default useProfile;
+export default useProfileHook;

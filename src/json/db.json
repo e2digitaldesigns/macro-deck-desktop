@@ -6,7 +6,8 @@
     "_id": "",
     "index": 0,
     "page": { "_id": "", "index": 0 },
-    "buttonPad": { "_id": "", "index": 0 }
+    "buttonPad": { "_id": "", "index": 0 },
+    "action": { "_id": "", "index": 0 }
   },
   "profiles": [
     {
@@ -19,21 +20,75 @@
           "buttonPads": [
             {
               "buttonPadNum": 1,
-              "_id": "0002",
+              "_id": "1111",
               "text": "Button 001",
+              "textColor": "#ff00ff",
               "icon": "",
+              "iconColor": "",
               "image": "",
               "bgColor": "#ff0000",
-              "actions": [{ "order": 1, "delay": 0 }]
+              "actions": [
+                {
+                  "_id": "act001",
+                  "order": 1,
+                  "action": "exe",
+                  "subAction": "",
+                  "seconds": 0,
+                  "url": "",
+                  "text": "",
+                  "scene": "",
+                  "layer": "",
+                  "path": "C:/Users/mycas/AppData/Local/Vivaldi/Application/vivaldi.exe"
+                },
+                {
+                  "_id": "act002",
+                  "order": 0,
+                  "action": "twitter",
+                  "subAction": "",
+                  "seconds": 0,
+                  "url": "",
+                  "text": "playing games now",
+                  "scene": "",
+                  "layer": "",
+                  "path": ""
+                },
+                {
+                  "_id": "act003",
+                  "order": 0,
+                  "action": "",
+                  "subAction": "",
+                  "seconds": 0,
+                  "url": "",
+                  "text": "",
+                  "scene": "",
+                  "layer": "",
+                  "path": ""
+                }
+              ]
             },
             {
               "buttonPadNum": 2,
-              "_id": "2323",
+              "_id": "2222",
               "text": "Button 002",
+              "textColor": "",
               "icon": "",
+              "iconColor": "",
               "image": "",
               "bgColor": "#ff0000",
-              "actions": [{ "order": 1, "delay": 0 }]
+              "actions": [
+                {
+                  "_id": "act004",
+                  "order": 0,
+                  "action": "",
+                  "subAction": "",
+                  "seconds": 0,
+                  "url": "",
+                  "text": "",
+                  "scene": "",
+                  "layer": "",
+                  "path": ""
+                }
+              ]
             }
           ]
         },
@@ -67,7 +122,12 @@
       "_id": "44444",
       "profileName": "4 - Glamizon Youtube",
       "buttonPads": 24,
-      "pages": []
+      "pages": [
+        {
+          "_id": "xxl",
+          "buttonPads": []
+        }
+      ]
     },
 
     {

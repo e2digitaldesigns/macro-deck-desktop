@@ -2,31 +2,25 @@ import * as React from "react";
 import { Close, Fullscreen, FullscreenExit, Remove } from "@material-ui/icons";
 
 import { Header, Ul, UlRight } from "./headerStyles";
+import { useElectron } from "./../../../hooks";
 
-export interface ITemplateHeader {
-  closeApplication: () => void;
-  fullScreenToggleApplication: (action: boolean) => void;
-  minimizeApplication: () => void;
-}
+export interface ITemplateHeader {}
 
-const TemplateHeader: React.FC<ITemplateHeader> = ({
-  closeApplication,
-  fullScreenToggleApplication,
-  minimizeApplication
-}) => {
+const TemplateHeader: React.FC<ITemplateHeader> = () => {
   const [fullScreenState, setFullScreenState] = React.useState<boolean>(false);
+  const { ipcRender } = useElectron();
 
   const handleCloseApplication = (): void => {
-    closeApplication();
+    ipcRender("header", "close");
   };
 
   const handleFullScreenToggle = (action: boolean): void => {
+    ipcRender("header", "fsToggle");
     setFullScreenState(action);
-    fullScreenToggleApplication(action);
   };
 
   const handleMinimizeApplication = (): void => {
-    minimizeApplication();
+    ipcRender("header", "minimize");
   };
 
   return (

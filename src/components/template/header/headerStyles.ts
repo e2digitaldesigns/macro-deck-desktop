@@ -7,6 +7,7 @@ export const Header = styled.header`
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  -webkit-app-region: drag;
 `;
 
 export const Ul = styled.ul`
@@ -21,6 +22,7 @@ export const Ul = styled.ul`
     cursor: pointer;
     display: inline-block;
     padding: 6px 15px 0;
+    -webkit-app-region: no-drag;
     &:hover {
       color: #fff;
       background: #383942;

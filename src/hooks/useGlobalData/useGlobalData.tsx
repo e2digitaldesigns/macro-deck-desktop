@@ -1,8 +1,9 @@
 import React from "react";
-import { GlobalContext, iGlobalContextStateInterface } from "./globalContext";
+import { GlobalContext } from "./globalContext";
+import { IntGlobalContextStateInterface } from "../../types";
 
 const useGlobalData = () => {
-  const globalData: iGlobalContextStateInterface | null = React.useContext(
+  const globalData: IntGlobalContextStateInterface | null = React.useContext(
     GlobalContext
   );
 

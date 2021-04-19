@@ -1,14 +1,12 @@
 import React, { useState, useMemo } from "react";
-import {
-  GlobalContext,
-  iGlobalContextInterface
-} from "./hooks/useGlobalData/globalContext";
+import { GlobalContext } from "./hooks/useGlobalData/globalContext";
+import { IntGlobalContextInterface } from "./types";
 import TemplateWrapper from "./components/template/template";
 import "./scss/styles.scss";
 import db from "./json/db.json";
 
 function App() {
-  const [state, setState] = useState<iGlobalContextInterface>({ ...db });
+  const [state, setState] = useState<IntGlobalContextInterface>({ ...db });
   const value = useMemo(() => ({ state, setState }), [state, setState]);
 
   return (

@@ -2,20 +2,20 @@ import _cloneDeep from "lodash/cloneDeep";
 import _filter from "lodash/filter";
 import shortid from "shortid";
 
-import { useGlobalData } from "./../../hooks";
+import { useGlobalData } from "..";
 
 import useHelper from "../helper";
 
-import { iProfilePages } from "../useGlobalData/globalContext";
+import { IntProfilePages } from "../../types";
 
-export interface UsePageProps {
+export interface IntUsePageHook {
   createProfilePage: () => void;
   readProfilePage: () => any;
   changeProfilePage: (pageId: string) => void;
   deleteProfilePage: () => void;
 }
 
-const usePage = (): UsePageProps => {
+const usePageHook = (): IntUsePageHook => {
   const globalData: any = useGlobalData();
   const { getPageIndex, getProfileIndex } = useHelper();
 
@@ -31,7 +31,7 @@ const usePage = (): UsePageProps => {
     if (index === -1) return;
     const newState = _cloneDeep(globalData?.state);
     const pageId = shortid.generate();
-    const newPage: iProfilePages = {
+    const newPage: IntProfilePages = {
       _id: pageId,
       buttonPads: []
     };
@@ -72,4 +72,4 @@ const usePage = (): UsePageProps => {
   };
 };
 
-export default usePage;
+export default usePageHook;

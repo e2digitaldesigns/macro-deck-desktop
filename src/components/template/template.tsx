@@ -6,18 +6,10 @@ import SideBar from "./sideBar/sideBar";
 export interface ITemplateWrapperProps {}
 
 const PrimaryTemplate: React.FC<ITemplateWrapperProps> = () => {
-  const closeApplication = () => {};
-  const fullScreenToggleApplication = () => {};
-  const minimizeApplication = () => {};
-
   return (
     <>
       <section data-testid="template-wrapper-section">
-        <Header
-          closeApplication={closeApplication}
-          fullScreenToggleApplication={fullScreenToggleApplication}
-          minimizeApplication={minimizeApplication}
-        />
+        <Header />
         <div className="application-template-wrapper">
           <div className="template-side-bar-left">
             <SideBar />

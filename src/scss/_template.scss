@@ -24,7 +24,7 @@ body {
   min-width: $applicationWidth;
   margin: 0.5rem auto;
   display: grid;
-  grid-template-columns: 15rem auto;
+  grid-template-columns: 15rem 64rem;
 
   .template-side-bar-left,
   .template-main-content {

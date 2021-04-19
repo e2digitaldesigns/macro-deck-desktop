@@ -1,32 +1,26 @@
 import React, { useState } from "react";
 import _map from "lodash/map";
 import { Delete, Edit } from "@material-ui/icons";
-import {
-  GlobalContext,
-  iButtonsProfile,
-  iGlobalContextStateInterface
-} from "../../../hooks/useGlobalData/globalContext";
-import useProfile, {
-  intEditState
-} from "../../../hooks/useProfile/useButtonProfile";
+import { IntButtonsProfile } from "../../../types";
+import { useProfile, useGlobalData } from "../../../hooks";
+import { IntEditState } from "../../../hooks/useProfileHook/useProfileHook";
+import settings from "../../../settings/system.json";
 
 export interface iSideBarItem {
-  profile: iButtonsProfile;
+  profile: IntButtonsProfile;
 }
 
 const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
-  const globalData: iGlobalContextStateInterface | null = React.useContext(
-    GlobalContext
-  );
+  const globalData = useGlobalData();
   const { activateProfile, updateProfile, deleteProfile } = useProfile();
 
-  const [editState, setEditState] = useState<intEditState>({
+  const [editState, setEditState] = useState<IntEditState>({
     editing: false,
     profileName: profile?.profileName,
     buttonPads: profile?.buttonPads
   });
 
-  const buttonPadSelect: number[] = [6, 8, 12, 15, 24, 32];
+  const buttonPadSelect: number[] = settings.SETTINGS.BUTTON_PAD_AMOUNTS;
 
   const handleProfileActivate = (
     event: React.FormEvent<HTMLDivElement>
@@ -62,7 +56,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
     event:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  ): void => {
     let { name, value } = event.target;
     const regex = /^[a-z\d\-_\s ]+$/i;
     if (regex.test(value)) setEditState({ ...editState, [name]: value });
