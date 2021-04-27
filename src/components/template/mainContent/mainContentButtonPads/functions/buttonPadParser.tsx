@@ -23,11 +23,6 @@ const ButtonPadParser: React.FC<ButtonPadParserProps> = ({ padNumber }) => {
     buttonPadId && deleteButtonPad(buttonPadId);
   };
 
-  const handleTest = (e: React.MouseEvent<HTMLElement>): void => {
-    e.stopPropagation();
-    console.log(28, "button tester");
-  };
-
   if (!padNumber) return <div></div>;
 
   return (
@@ -50,8 +45,6 @@ const ButtonPadParser: React.FC<ButtonPadParserProps> = ({ padNumber }) => {
           >
             <Edit fontSize="inherit" />
           </div>
-
-          <div className="button-test-link" onClick={e => handleTest(e)}></div>
 
           <div className="button-icon icon-button">
             <Edit fontSize="inherit" />

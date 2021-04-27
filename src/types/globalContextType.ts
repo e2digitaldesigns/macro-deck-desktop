@@ -23,9 +23,9 @@ export interface IntProfilePageButtonPad {
   buttonPadNum: number;
   _id: string;
   text: string;
-  textColor?: string;
+  textColor: string;
   icon: string;
-  iconColor?: string;
+  iconColor: string;
   image: string;
   bgColor: string;
   actions: IntProfilePageButtonPadActions[] | any[];
@@ -33,14 +33,15 @@ export interface IntProfilePageButtonPad {
 
 export interface IntProfilePages {
   _id: string;
-  buttonPads?: IntProfilePageButtonPad[];
+  buttonPads: IntProfilePageButtonPad[];
 }
 
 export interface IntButtonsProfile {
   _id: string;
-  profileName?: string;
+  profileName: string;
   buttonPads: number;
-  pages?: IntProfilePages[];
+  // pages: any;
+  pages: IntProfilePages[];
 }
 
 export interface IntIdIndex {
@@ -48,18 +49,18 @@ export interface IntIdIndex {
   index?: number | undefined;
 }
 export interface IntActiveProfile {
-  _id?: string;
-  index?: number | undefined;
-  page?: IntIdIndex;
-  buttonPad?: IntIdIndex;
-  action?: IntIdIndex;
+  _id: string;
+  index: number | undefined;
+  page: IntIdIndex;
+  buttonPad: IntIdIndex;
+  action: IntIdIndex;
 }
 
 export interface IntGlobalContextInterface {
   userInformation?: IntUserInformation;
   templateInformation?: IntTemplateInformation;
   settings?: any;
-  profiles?: IntButtonsProfile[];
+  profiles: IntButtonsProfile[];
   activeProfile?: IntActiveProfile | undefined;
   method?: () => void;
 }

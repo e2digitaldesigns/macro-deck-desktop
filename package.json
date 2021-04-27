@@ -21,6 +21,7 @@
     "check-prop-types": "^1.1.2",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
+    "obs-websocket-js": "^4.0.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-loading-skeleton": "^2.2.0",
