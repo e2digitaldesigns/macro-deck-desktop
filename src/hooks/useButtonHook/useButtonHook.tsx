@@ -3,9 +3,9 @@ import _find from "lodash/find";
 import _findIndex from "lodash/findIndex";
 import shortid from "shortid";
 
-import { useGlobalData } from "..";
+import { useGlobalData } from "../";
 
-import useHelper from "../helper";
+import { useHelper } from "../../hooks";
 
 import { IntProfilePageButtonPad } from "../../types";
 
@@ -21,7 +21,10 @@ const useButtonHook = (): IntUseButtonHook => {
   const globalData: any = useGlobalData();
   const { getPageIndex, getProfileIndex } = useHelper();
 
-  const activateButtonPad = (_id: string, padNumber: number) => {
+  const activateButtonPad: IntUseButtonHook["activateButtonPad"] = (
+    _id: string,
+    padNumber: number
+  ): void => {
     const newState = _cloneDeep(globalData?.state);
     const newId = shortid.generate();
     const profileIndex = getProfileIndex();
@@ -54,10 +57,13 @@ const useButtonHook = (): IntUseButtonHook => {
     );
 
     newState.activeProfile.buttonPad.index = buttonIndex;
+    newState.activeProfile.action._id = undefined;
     globalData?.setState(newState);
   };
 
-  const readButtonPad = (padNumber: number) => {
+  const readButtonPad: IntUseButtonHook["readButtonPad"] = (
+    padNumber: number
+  ): IntProfilePageButtonPad => {
     const profileIndex = getProfileIndex();
 
     const newState = _cloneDeep(globalData?.state);
@@ -74,7 +80,7 @@ const useButtonHook = (): IntUseButtonHook => {
     return buttonPad;
   };
 
-  const getActiveButton = () => {
+  const getActiveButton: IntUseButtonHook["getActiveButton"] = (): IntProfilePageButtonPad => {
     const newState = _cloneDeep(globalData?.state);
     const profileIndex = getProfileIndex();
     const pageIndex = getPageIndex("null");
@@ -85,7 +91,10 @@ const useButtonHook = (): IntUseButtonHook => {
     ];
   };
 
-  const updateButtonPad = (_id: string, data: IntProfilePageButtonPad) => {
+  const updateButtonPad: IntUseButtonHook["updateButtonPad"] = (
+    _id,
+    data
+  ): void => {
     const newState = _cloneDeep(globalData?.state);
     const profileIndex = getProfileIndex();
     const pageIndex = getPageIndex("null");
@@ -97,7 +106,7 @@ const useButtonHook = (): IntUseButtonHook => {
     globalData?.setState(newState);
   };
 
-  const deleteButtonPad = (_id: string) => {
+  const deleteButtonPad: IntUseButtonHook["deleteButtonPad"] = (_id): void => {
     const newState = _cloneDeep(globalData?.state);
     const profileIndex = getProfileIndex();
     const pageIndex = getPageIndex("null");

@@ -5,3 +5,7 @@ sfc - stateless functional component
 React.ChangeEvent<HTMLSelectElement>
 
 npx create-react-app rts --template typescript
+
+const getProducts = async (): Promise<intToBeReturned> =>{
+    await(await fetch('https://fakeStoreApi.com/products')).json();
+}

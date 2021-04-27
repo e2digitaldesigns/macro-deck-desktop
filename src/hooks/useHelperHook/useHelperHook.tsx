@@ -1,11 +1,14 @@
 import _findIndex from "lodash/findIndex";
-import { useGlobalData } from "./../hooks";
+import { useGlobalData } from "../";
 
 export interface IntUseHelperHook {
   getProfileIndex: () => number;
   getPageIndex: (_id: string) => number;
   getButtonPadIndex: (_id: string) => number;
   getActionIndex: (_id: string) => number;
+
+  getIndexes: () => any;
+  valueFinder: (dataSet: any, searchTerm: string, result: any) => any;
 }
 
 const useHelperHook = (): IntUseHelperHook => {
@@ -51,6 +54,19 @@ const useHelperHook = (): IntUseHelperHook => {
     return buttonPadIndex;
   };
 
+  const getIndexes = (): any => {
+    const prefix = globalData?.state?.activeProfile;
+
+    const indexes = {
+      profile: prefix?.index,
+      page: prefix?.page?.index,
+      button: prefix?.buttonPad?.index,
+      action: prefix?.action?.index
+    };
+
+    return indexes;
+  };
+
   const getActionIndex = (_id: string): number => {
     const profileIndex = getProfileIndex();
     const pageIndex = getPageIndex("null");
@@ -71,11 +87,37 @@ const useHelperHook = (): IntUseHelperHook => {
     return actionIndex;
   };
 
+  const valueFinder = (
+    dataSet: any,
+    searchTerm: string,
+    result: any = []
+  ): any => {
+    const param = "_id";
+    Object.keys(dataSet).forEach(key => {
+      if (typeof dataSet[key] === "object") {
+        valueFinder(dataSet[key], searchTerm, result);
+      }
+
+      if (
+        typeof dataSet[key] === "string" &&
+        dataSet[key] === searchTerm &&
+        key === param
+      ) {
+        result.push(dataSet);
+      }
+    });
+
+    return result;
+  };
+
   return {
     getProfileIndex,
     getPageIndex,
     getButtonPadIndex,
-    getActionIndex
+    getActionIndex,
+
+    getIndexes,
+    valueFinder
   };
 };
 

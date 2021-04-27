@@ -2,9 +2,9 @@ import _cloneDeep from "lodash/cloneDeep";
 import _filter from "lodash/filter";
 import shortid from "shortid";
 
-import { useGlobalData } from "..";
+import { useGlobalData } from "../";
 
-import useHelper from "../helper";
+import { useHelper } from "../../hooks";
 
 import { IntProfilePages } from "../../types";
 
@@ -58,8 +58,10 @@ const usePageHook = (): IntUsePageHook => {
     );
 
     newState.profiles[newState.activeProfile.index].pages = newPages;
+
     newState.activeProfile.page._id =
       newState.profiles[newState.activeProfile.index].pages[0]._id;
+
     newState.activeProfile.page.index = 0;
     globalData?.setState(newState);
   };

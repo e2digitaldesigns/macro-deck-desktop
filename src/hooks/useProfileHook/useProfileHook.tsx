@@ -2,12 +2,11 @@ import _cloneDeep from "lodash/cloneDeep";
 import _filter from "lodash/filter";
 import _find from "lodash/find";
 import _findIndex from "lodash/findIndex";
-import shortid from "shortid";
 
 import { useGlobalData } from "..";
 import { IntButtonsProfile } from "../../types";
 
-import useHelper from "../helper";
+import { useHelper, useObj } from "../../hooks";
 
 export interface IntEditState {
   editing: boolean;
@@ -25,17 +24,25 @@ export interface IntUseProfileHook {
 
 const useProfileHook = (): IntUseProfileHook => {
   const globalData: any = useGlobalData();
+  const { profileObj } = useObj();
   const { getProfileIndex } = useHelper();
 
   const activateProfile: IntUseProfileHook["activateProfile"] = (_id): void => {
     const newState = _cloneDeep(globalData?.state);
     const profile = _find(newState.profiles, { _id });
+    const index = _findIndex(newState.profiles, (f: any) => {
+      return f._id === _id;
+    });
+
+    console.clear();
+    console.log(37, { index });
 
     newState.activeProfile = {
       _id,
-      index: 0,
+      index: index,
       page: { _id: profile?.pages?.[0]?._id, index: 0 },
-      buttonPad: {}
+      buttonPad: { _id: undefined, index: -1 },
+      action: { _id: undefined, index: -1 }
     };
 
     globalData?.setState(newState);
@@ -43,14 +50,8 @@ const useProfileHook = (): IntUseProfileHook => {
 
   const createProfile = () => {
     const newState = _cloneDeep(globalData?.state);
-    const newProfile: IntButtonsProfile = {
-      _id: shortid.generate(),
-      profileName: "New Profile",
-      buttonPads: 12,
-      pages: [{ _id: shortid.generate(), buttonPads: [] }]
-    };
-
-    newState?.profiles && newState?.profiles.push(newProfile);
+    const newProfile: IntButtonsProfile = profileObj();
+    newState?.profiles.push(newProfile);
     globalData?.setState(newState);
   };
 
@@ -82,9 +83,10 @@ const useProfileHook = (): IntUseProfileHook => {
     if (globalData?.state?.activeProfile?._id === _id) {
       newState.activeProfile = {
         _id: undefined,
-        index: undefined,
-        page: { _id: undefined, index: undefined },
-        buttonPad: {}
+        index: -1,
+        page: { _id: undefined, index: -1 },
+        buttonPad: { _id: undefined, index: -1 },
+        action: { _id: undefined, index: -1 }
       };
     }
 
