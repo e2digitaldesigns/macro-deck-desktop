@@ -1,134 +1,107 @@
 import _cloneDeep from "lodash/cloneDeep";
+import _filter from "lodash/filter";
 import _find from "lodash/find";
 import _findIndex from "lodash/findIndex";
-import shortid from "shortid";
 
 import { useGlobalData } from "../";
+import { useObj } from "../../hooks";
 
-import { useHelper } from "../../hooks";
-
-import { IntProfilePageButtonPad } from "../../types";
+import { IntActions, IntButtonPads, IntGlobalData } from "../../types";
 
 export interface IntUseButtonHook {
-  activateButtonPad: (_id: string, padNumber: number) => void;
-  readButtonPad: (padNumber: number) => IntProfilePageButtonPad;
-  updateButtonPad: (_id: string, data: IntProfilePageButtonPad) => void;
+  activateButtonPad: (_id: string) => void;
+  createButtonPad: (padNumber: number) => void;
+  readButtonPad: (padNumber: number) => IntButtonPads | undefined;
+  updateButtonPad: (data: IntButtonPads) => void;
   deleteButtonPad: (_id: string) => void;
-  getActiveButton: () => IntProfilePageButtonPad;
+  getActiveButton: () => IntButtonPads | undefined;
 }
 
 const useButtonHook = (): IntUseButtonHook => {
-  const globalData: any = useGlobalData();
-  const { getPageIndex, getProfileIndex } = useHelper();
+  const globalData: IntGlobalData = useGlobalData();
+  const { buttonPadObj } = useObj();
 
   const activateButtonPad: IntUseButtonHook["activateButtonPad"] = (
-    _id: string,
-    padNumber: number
+    _id: string
   ): void => {
-    const newState = _cloneDeep(globalData?.state);
-    const newId = shortid.generate();
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
+    const state = _cloneDeep(globalData.state);
+    state.active.buttonPadId = _id;
+    state.active.actionId = "";
+    globalData.setState(state);
+  };
 
-    if (!_id) {
-      const newButton: IntProfilePageButtonPad = {
-        buttonPadNum: padNumber,
-        _id: newId,
-        text: `Button ${padNumber}`,
-        textColor: "",
-        icon: "",
-        iconColor: "",
-        image: "",
-        bgColor: "",
-        actions: []
-      };
+  const createButtonPad: IntUseButtonHook["createButtonPad"] = padNumber => {
+    const state = _cloneDeep(globalData.state);
+    const buttonPad = buttonPadObj();
+    buttonPad.profileId = globalData.state.active.profileId;
+    buttonPad.pageId = globalData.state.active.pageId;
+    buttonPad.buttonPadNum = padNumber;
 
-      newState.profiles[profileIndex].pages[pageIndex].buttonPads.push(
-        newButton
-      );
-    }
-
-    newState.activeProfile.buttonPad._id = _id ? _id : newId;
-    const buttonIndex = _findIndex(
-      newState.profiles[profileIndex].pages[pageIndex].buttonPads,
-      (f: any) => {
-        return f._id === newState.activeProfile.buttonPad._id;
-      }
-    );
-
-    newState.activeProfile.buttonPad.index = buttonIndex;
-    newState.activeProfile.action._id = undefined;
-    globalData?.setState(newState);
+    state.buttonPads.push(buttonPad);
+    globalData.setState(state);
   };
 
   const readButtonPad: IntUseButtonHook["readButtonPad"] = (
     padNumber: number
-  ): IntProfilePageButtonPad => {
-    const profileIndex = getProfileIndex();
-
-    const newState = _cloneDeep(globalData?.state);
-    const buttonPage = _find(
-      newState?.profiles?.[profileIndex]?.pages,
-      f => f._id === newState?.activeProfile?.page?._id
-    );
+  ) => {
+    const state = _cloneDeep(globalData.state);
 
     const buttonPad = _find(
-      buttonPage?.buttonPads,
-      f => f.buttonPadNum === padNumber
+      state.buttonPads,
+      (f: IntButtonPads) =>
+        f.buttonPadNum === padNumber && f.pageId === state.active.pageId
     );
 
     return buttonPad;
   };
 
-  const getActiveButton: IntUseButtonHook["getActiveButton"] = (): IntProfilePageButtonPad => {
-    const newState = _cloneDeep(globalData?.state);
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
-    const buttonIndex = globalData?.state?.activeProfile?.buttonPad?.index;
+  const getActiveButton: IntUseButtonHook["getActiveButton"] = () => {
+    const state = _cloneDeep(globalData.state);
 
-    return newState.profiles[profileIndex].pages[pageIndex].buttonPads[
-      buttonIndex
-    ];
-  };
-
-  const updateButtonPad: IntUseButtonHook["updateButtonPad"] = (
-    _id,
-    data
-  ): void => {
-    const newState = _cloneDeep(globalData?.state);
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
-    const buttonIndex = globalData?.state?.activeProfile?.buttonPad?.index;
-
-    newState.profiles[profileIndex].pages[pageIndex].buttonPads[buttonIndex] = {
-      ...data
-    };
-    globalData?.setState(newState);
-  };
-
-  const deleteButtonPad: IntUseButtonHook["deleteButtonPad"] = (_id): void => {
-    const newState = _cloneDeep(globalData?.state);
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
-
-    const buttonPadIndex = _findIndex(
-      newState?.profiles?.[profileIndex]?.pages[pageIndex].buttonPads,
-      (f: any) => {
-        return f._id === _id;
-      }
+    const buttonPad = _find(
+      state.buttonPads,
+      (f: IntButtonPads) => f._id === state.active.buttonPadId
     );
 
-    if (buttonPadIndex <= -1) return;
+    return buttonPad;
+  };
 
-    newState.profiles[profileIndex].pages[pageIndex].buttonPads[
-      buttonPadIndex
-    ] = [];
+  const updateButtonPad: IntUseButtonHook["updateButtonPad"] = (data): void => {
+    const state = _cloneDeep(globalData.state);
+    const index = _findIndex(
+      state.buttonPads,
+      (f: IntButtonPads) => f._id === data._id
+    );
 
-    globalData?.setState(newState);
+    if (index === -1) return;
+    state.buttonPads[index] = { ...data };
+    globalData?.setState(state);
+  };
+
+  const deleteButtonPad: IntUseButtonHook["deleteButtonPad"] = _id => {
+    const state = _cloneDeep(globalData.state);
+
+    const buttonPads = _filter(
+      state.buttonPads,
+      (f: IntButtonPads) => f._id !== _id
+    );
+
+    const actions = _filter(
+      state.actions,
+      (f: IntActions) => f.buttonPadId !== _id
+    );
+
+    state.buttonPads = buttonPads;
+    state.actions = actions;
+    state.active.buttonPadId = "";
+    state.active.actionId = "";
+
+    globalData.setState(state);
   };
 
   return {
     activateButtonPad,
+    createButtonPad,
     readButtonPad,
     getActiveButton,
     updateButtonPad,

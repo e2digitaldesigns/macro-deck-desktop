@@ -1,7 +1,7 @@
 import * as React from "react";
-import { AddCircleOutline, FileCopy } from "@material-ui/icons";
-import { useGlobalData, useProfile } from "../../../hooks";
-import { IntButtonsProfile } from "../../../types";
+import { useGlobalData } from "../../../hooks";
+import { IntProfile } from "../../../types";
+import TemplateSideBarHeader from "./sideBarHeader";
 
 import SideBarItem from "./sideBarItem";
 
@@ -9,7 +9,6 @@ export interface ITemplateSideBarProps {}
 
 const TemplateSideBar: React.FC<ITemplateSideBarProps> = () => {
   const globalData = useGlobalData();
-  const { createProfile } = useProfile();
 
   return (
     <>
@@ -17,24 +16,10 @@ const TemplateSideBar: React.FC<ITemplateSideBarProps> = () => {
         className="sidebar-section"
         data-testid="template-sidebar-component"
       >
-        <div className="menu-item">
-          <div className="menu-item-button menu-item-header">
-            <div className="icon prefix-icon">
-              <FileCopy fontSize="inherit" />
-            </div>
-            <div>Profiles ({globalData?.state?.profiles?.length})</div>
-            <div
-              className="icon suffix-icon"
-              data-testid="template-sidebar-create-new-profile"
-              onClick={createProfile}
-            >
-              <AddCircleOutline fontSize="inherit" />
-            </div>
-          </div>
-        </div>
+        <TemplateSideBarHeader />
 
         {globalData?.state?.profiles?.map(
-          (m: IntButtonsProfile): React.ReactElement => (
+          (m: IntProfile): React.ReactElement => (
             <SideBarItem key={m._id} profile={m} />
           )
         )}

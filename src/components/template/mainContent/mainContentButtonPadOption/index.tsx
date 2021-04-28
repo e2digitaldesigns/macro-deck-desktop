@@ -7,11 +7,17 @@ export interface MainContentButtonPadOptionsProps {}
 const MainContentButtonPadOptions: React.FC<MainContentButtonPadOptionsProps> = () => {
   const globalData = useGlobalData();
 
-  if (!globalData?.state?.activeProfile?.buttonPad?._id) {
+  if (!globalData?.state?.active?.profileId) {
     return <div></div>;
   }
 
-  return <ButtonPadForm />;
+  return (
+    <>
+      <div>
+        <ButtonPadForm />
+      </div>
+    </>
+  );
 };
 
 export default MainContentButtonPadOptions;

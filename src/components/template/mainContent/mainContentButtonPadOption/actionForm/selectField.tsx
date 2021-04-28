@@ -1,7 +1,7 @@
 import React from "react";
 import _map from "lodash/map";
 
-import { IntProfilePageButtonPadActions } from "../../../../../types/globalContextType";
+import { IntActions } from "../../../../../types/globalContextType";
 
 interface subActionMapProps {
   [key: string]: any[];
@@ -18,20 +18,20 @@ const subAction: subActionMapProps = {
     "obsSceneChange",
     "obsStreamStart",
     "obsStreamStop",
-    "obsStreamToggle"
+    "obsStreamToggle",
   ],
   spotify: [
     "spotifyNext",
     "spotifyPause",
     "spotifyPrevious",
     "spotifyStart",
-    "spotifyStop"
-  ]
+    "spotifyStop",
+  ],
 };
 
 export const selectField = (
   name: string,
-  state: IntProfilePageButtonPadActions,
+  state: IntActions,
   onChange: any
 ): React.ReactElement => {
   return (

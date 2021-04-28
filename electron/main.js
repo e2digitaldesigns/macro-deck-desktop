@@ -10,8 +10,10 @@ let mainWindow;
 app.on("ready", () => {
   mainWindow = new BrowserWindow({
     width: 1280,
+    minWidth: 1280,
     height: 885,
-    resizable: false,
+    minHeight: 885,
+    resizable: true,
     frame: false,
     backgroundColor: "#1e1e1e",
     movable: true,
@@ -24,6 +26,7 @@ app.on("ready", () => {
     }
   });
 
+  mainWindow.setAspectRatio(1280 / 885);
   mainWindow.loadURL("http://localhost:9001");
   mainWindow.once("ready-to-show", () => mainWindow.show());
   mainWindow.on("closed", () => {

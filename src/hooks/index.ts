@@ -1,4 +1,4 @@
-export { default as useGlobalData } from "./useGlobalData";
+export { default as useGlobalData } from "./useGlobalDataHook";
 
 export { default as useActions } from "./useActionsHook";
 export { default as useButton } from "./useButtonHook";

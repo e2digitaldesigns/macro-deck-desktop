@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import _map from "lodash/map";
 import { Delete, Edit } from "@material-ui/icons";
-import { IntButtonsProfile } from "../../../types";
+import { IntProfile } from "../../../types";
 import { useProfile, useGlobalData } from "../../../hooks";
 import { IntEditState } from "../../../hooks/useProfileHook/useProfileHook";
-import settings from "../../../settings/system.json";
+import SETTINGS from "../../../settings/system.json";
 
 export interface iSideBarItem {
-  profile: IntButtonsProfile;
+  profile: IntProfile;
 }
 
 const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
@@ -20,13 +20,13 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
     buttonPads: profile?.buttonPads
   });
 
-  const buttonPadSelect: number[] = settings.SETTINGS.BUTTON_PAD_AMOUNTS;
+  const buttonPadSelect: number[] = SETTINGS.BUTTON_PAD_AMOUNTS;
 
   const handleProfileActivate = (
     event: React.FormEvent<HTMLDivElement>
   ): void => {
     event.stopPropagation();
-    if (globalData?.state?.activeProfile?._id === profile?._id) {
+    if (globalData?.state?.active?.profileId === profile?._id) {
       return;
     }
 
@@ -47,7 +47,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
     event.stopPropagation();
     deleteProfile(profile?._id);
 
-    if (globalData?.state?.activeProfile?._id === profile?._id) {
+    if (globalData?.state?.active?.profileId === profile?._id) {
       setEditState({ ...editState, editing: false });
     }
   };
@@ -69,7 +69,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
   return (
     <div
       className={`menu-item ${
-        globalData?.state?.activeProfile?._id === profile?._id
+        globalData?.state?.active?.profileId === profile?._id
           ? "menu-item-active"
           : "menu-item-inactive"
       }`}
@@ -93,7 +93,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
 
       <div
         className={`menu-item-information ${
-          globalData?.state?.activeProfile?._id === profile?._id &&
+          globalData?.state?.active?.profileId === profile?._id &&
           editState.editing &&
           "menu-item-information-active"
         }`}
@@ -115,7 +115,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
           >
             {_map(buttonPadSelect, m => (
               <option key={m} value={m}>
-                {m}
+                {m} - p
               </option>
             ))}
           </select>

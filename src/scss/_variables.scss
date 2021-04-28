@@ -4,16 +4,17 @@ $pageBgColor: #131416;
 $sectionBgColor: #2b2d30;
 $accentColor: #f542e9;
 $fontPrimaryColor: #fff;
+$borderColor: #111;
 
 $wrapperMarginTop: 1rem;
 $largeWidthAddition: 5rem;
 
-$applicationWidth: 79rem;
+$applicationWidth: 80rem;
 
 $sideBarLeftWidth: 15rem;
 $sideBarLeftWidthLarge: $sideBarLeftWidth + $largeWidthAddition;
 
-$mainContentWidth: 49rem;
+$mainContentWidth: 63rem;
 
 $sideBarRightWidth: $applicationWidth - ($sideBarLeftWidth + $mainContentWidth);
 

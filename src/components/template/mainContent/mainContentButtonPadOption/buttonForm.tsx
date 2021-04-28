@@ -1,37 +1,40 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useButton } from "../../../../hooks";
+import SETTINGS from "../../../../settings/system.json";
 
 export interface IntButtonForm {}
 
 const ButtonForm: React.FC<IntButtonForm> = () => {
   const { getActiveButton, deleteButtonPad, updateButtonPad } = useButton();
   const buttonPad = getActiveButton();
-  const [state, setState] = useState(buttonPad);
+  const [state, setState] = useState(SETTINGS.DEFAULT_STATE.BUTTON_PADS);
   const _id = useRef("");
 
   useEffect((): void => {
-    if (_id.current !== buttonPad._id) {
+    if (buttonPad && _id.current !== buttonPad._id) {
       _id.current = buttonPad._id;
-      setState(buttonPad);
+      setState(state => buttonPad);
+    } else if (!buttonPad) {
+      setState(state => SETTINGS.DEFAULT_STATE.BUTTON_PADS);
     }
-  }, [buttonPad, buttonPad._id]);
+  }, [buttonPad, buttonPad?._id]);
 
   const handleFormChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ): void => {
-    setState({ ...state, [e.target.name]: e.target.value });
+    state && setState({ ...state, [e.target.name]: e.target.value });
   };
 
   const handleFormSubmit = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
-    updateButtonPad(buttonPad._id, state);
+    buttonPad && state && updateButtonPad(state);
   };
 
   const handleDeleteButton = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault();
-    deleteButtonPad(state._id);
+    buttonPad && state?._id && deleteButtonPad(state._id);
   };
 
   return (

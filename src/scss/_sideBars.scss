@@ -3,6 +3,7 @@ $leftMenuTransitionSpeed: 0.7s;
 .sidebar-section {
   border-top: 0.0625rem solid #333;
   // margin: 0.5rem 0.5rem 1.25rem;
+  width: 100%;
 }
 
 .menu-item {
@@ -97,25 +98,6 @@ $leftMenuTransitionSpeed: 0.7s;
         &:focus {
           border-color: $accentColor;
         }
-      }
-    }
-  }
-}
-
-.menu-item-header {
-  display: grid;
-  grid-template-columns: 1.5rem auto 1.5rem;
-  align-items: normal;
-  .icon {
-    color: #aaa;
-    padding-top: 0.25rem;
-    font-size: 1rem;
-    &.prefix-icon {
-    }
-    &.suffix-icon {
-      text-align: right;
-      &:hover {
-        color: white;
       }
     }
   }

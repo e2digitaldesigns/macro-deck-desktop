@@ -9,6 +9,7 @@
   border: 0.125rem solid #55565a;
   background-color: #1e1f22 !important;
   outline: none;
+  font-size: 0.875rem;
   &:focus {
     color: #fff;
     border-color: $accentColor !important;
@@ -27,6 +28,7 @@
   border: 0.125rem solid #55565a;
   background-color: #1e1f22;
   outline: none;
+  font-size: 0.875rem;
   &:focus {
     border-color: $accentColor;
   }
@@ -34,6 +36,7 @@
     font-weight: normal;
     border: none;
     outline: none;
+    font-size: 0.875rem;
   }
 }
 

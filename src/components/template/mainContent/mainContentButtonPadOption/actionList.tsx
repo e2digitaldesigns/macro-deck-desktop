@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import _map from "lodash/map";
-
-import { useActions, useButton } from "../../../../hooks";
-import { IntProfilePageButtonPadActions } from "./../../../../types/globalContextType";
+import { useActions } from "../../../../hooks";
+import { IntActions } from "./../../../../types/globalContextType";
 
 export interface IntActionList {}
 
 const ActionList: React.FC<IntActionList> = () => {
-  const { getActiveButton } = useButton();
-  const { activateAction, createAction, deleteAction } = useActions();
-  const buttonPad = getActiveButton();
+  const {
+    activateAction,
+    createAction,
+    getActions,
+    deleteAction
+  } = useActions();
+  const actions: IntActions[] = getActions();
 
   useEffect(() => {}, []);
 
@@ -29,10 +32,10 @@ const ActionList: React.FC<IntActionList> = () => {
     <div>
       <button onClick={handleCreateAction}>new action</button>
       <ul>
-        {buttonPad.actions &&
+        {actions &&
           _map(
-            buttonPad.actions,
-            (m: IntProfilePageButtonPadActions): React.ReactElement => (
+            actions,
+            (m: IntActions): React.ReactElement => (
               <li key={m._id}>
                 <button onClick={() => handleDeleteAction(m._id)}>
                   delete

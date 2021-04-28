@@ -11,11 +11,13 @@ const PrimaryTemplate: React.FC<ITemplateWrapperProps> = () => {
       <section data-testid="template-wrapper-section">
         <Header />
         <div className="application-template-wrapper">
+          <div></div>
           <div className="template-side-bar-left">
             <SideBar />
           </div>
-
+          <div></div>
           <MainContent />
+          <div></div>
         </div>
       </section>
     </>

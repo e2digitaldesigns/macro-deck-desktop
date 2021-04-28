@@ -1,76 +1,96 @@
 import _cloneDeep from "lodash/cloneDeep";
 import _filter from "lodash/filter";
-import shortid from "shortid";
+import _find from "lodash/find";
+import _sortBy from "lodash/sortBy";
 
 import { useGlobalData } from "../";
+import { useObj } from "../../hooks";
 
-import { useHelper } from "../../hooks";
-
-import { IntProfilePages } from "../../types";
+import {
+  IntGlobalData,
+  IntPages,
+  IntGlobalContextInterface,
+  IntButtonPads,
+  IntActions
+} from "../../types";
 
 export interface IntUsePageHook {
-  createProfilePage: () => void;
-  readProfilePage: () => any;
-  changeProfilePage: (pageId: string) => void;
-  deleteProfilePage: () => void;
+  activatePage: (_id: string) => void;
+  createPage: () => void;
+  deletePage: () => void;
+  readPages: () => IntPages[];
 }
 
 const usePageHook = (): IntUsePageHook => {
-  const globalData: any = useGlobalData();
-  const { getPageIndex, getProfileIndex } = useHelper();
+  const globalData: IntGlobalData = useGlobalData();
+  const { pageObj } = useObj();
 
-  const changeProfilePage = (pageId: string) => {
-    const newState = _cloneDeep(globalData?.state);
-    newState.activeProfile.page._id = pageId;
-    newState.activeProfile.page.index = getPageIndex(pageId);
-    globalData?.setState(newState);
+  const activatePage: IntUsePageHook["activatePage"] = _id => {
+    const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
+    state.active.pageId = _id;
+    globalData.setState(state);
   };
 
-  const createProfilePage = () => {
-    const index = getProfileIndex();
-    if (index === -1) return;
-    const newState = _cloneDeep(globalData?.state);
-    const pageId = shortid.generate();
-    const newPage: IntProfilePages = {
-      _id: pageId,
-      buttonPads: []
-    };
+  const readPages: IntUsePageHook["readPages"] = () => {
+    const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
 
-    newState?.profiles && newState?.profiles?.[index].pages.push(newPage);
-    if (newState?.profiles && newState?.profiles?.[index].pages.length === 1) {
-      newState.activeProfile.page._id = pageId;
-      newState.activeProfile.page.index = 0;
-    }
-    globalData?.setState(newState);
-  };
-
-  const readProfilePage = () => {};
-
-  const deleteProfilePage = () => {
-    const newState = _cloneDeep(globalData?.state);
-    const pages = newState?.profiles?.[newState.activeProfile.index]?.pages;
-
-    if (pages.length <= 1) return;
-
-    const newPages = _filter(
-      pages,
-      f => f._id !== newState.activeProfile.page._id
+    const pages = _sortBy(
+      _filter(
+        state?.pages,
+        (f: IntPages) => f.profileId === state.active.profileId
+      ),
+      "order"
     );
 
-    newState.profiles[newState.activeProfile.index].pages = newPages;
+    return pages;
+  };
 
-    newState.activeProfile.page._id =
-      newState.profiles[newState.activeProfile.index].pages[0]._id;
+  const createPage = () => {
+    const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
+    const page: IntPages = pageObj();
+    page.profileId = state.active.profileId;
+    state.pages.push(page);
+    globalData.setState(state);
+  };
 
-    newState.activeProfile.page.index = 0;
-    globalData?.setState(newState);
+  const deletePage: IntUsePageHook["deletePage"] = () => {
+    const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
+
+    state.pages = _filter(
+      state.pages,
+      (f: IntPages) =>
+        f.profileId === state.active.profileId && f._id !== state.active.pageId
+    );
+
+    if (state.pages.length === 0) return;
+
+    state.buttonPads = _filter(
+      state.buttonPads,
+      (f: IntButtonPads) => f.pageId !== state.active.pageId
+    );
+
+    state.actions = _filter(
+      state.actions,
+      (f: IntActions) => f.pageId !== state.active.pageId
+    );
+
+    const nextPage = _find(
+      state.pages,
+      (f: any) => f.profileId === state.active.profileId
+    );
+
+    state.active.pageId = nextPage ? nextPage._id : "";
+    state.active.buttonPadId = "";
+    state.active.actionId = "";
+
+    globalData.setState(state);
   };
 
   return {
-    changeProfilePage,
-    createProfilePage,
-    readProfilePage,
-    deleteProfilePage
+    activatePage,
+    createPage,
+    deletePage,
+    readPages
   };
 };
 

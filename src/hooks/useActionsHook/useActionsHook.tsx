@@ -1,118 +1,91 @@
+import _findIndex from "lodash/findIndex";
 import _cloneDeep from "lodash/cloneDeep";
 import _filter from "lodash/filter";
+import _find from "lodash/find";
 
 import { useGlobalData } from "../";
 
-import { useHelper, useObj } from "../../hooks";
+import { useObj } from "../../hooks";
 
-import {
-  IntGlobalContextStateInterface,
-  IntProfilePageButtonPadActions
-} from "../../types/globalContextType";
+import { IntActions, IntGlobalData } from "../../types/globalContextType";
 
 export interface IntUseActionHooks {
   activateAction: (_id: string) => void;
-  getAction: (_id: string) => IntProfilePageButtonPadActions;
+  getActions: () => IntActions[];
+  getAction: (_id: string) => IntActions | undefined;
   createAction: () => void;
   deleteAction: (_id: string) => void;
   updateAction: (action: any) => void;
 }
 
 const useActionHooks = (): IntUseActionHooks => {
-  const globalData: IntGlobalContextStateInterface | null = useGlobalData();
+  const globalData: IntGlobalData = useGlobalData();
   const { actionObj } = useObj();
-  const {
-    getProfileIndex,
-    getPageIndex,
-    getButtonPadIndex,
-    getActionIndex
-  } = useHelper();
 
   const activateAction: IntUseActionHooks["activateAction"] = (_id): void => {
-    const newState: any = _cloneDeep(globalData?.state);
-    const index = getActionIndex(_id);
-
-    newState.activeProfile.action._id = _id;
-    newState.activeProfile.action.index = index;
-    globalData?.setState(newState);
-  };
-
-  const getAction: IntUseActionHooks["getAction"] = (
-    _id: string
-  ): IntProfilePageButtonPadActions => {
-    const newState = _cloneDeep(globalData?.state);
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
-    const buttonPadIndex = getButtonPadIndex("null");
-    const actionIndex = getActionIndex(_id);
-
-    return newState?.profiles?.[profileIndex].pages?.[pageIndex]?.buttonPads?.[
-      buttonPadIndex
-    ]?.actions?.[actionIndex];
+    const state = _cloneDeep(globalData.state);
+    state.active.actionId = _id;
+    globalData.setState(state);
   };
 
   const createAction: IntUseActionHooks["createAction"] = (): void => {
-    const newAction = actionObj();
-    const newState = _cloneDeep(globalData?.state);
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
-    const buttonPadIndex = getButtonPadIndex("null");
+    const state = _cloneDeep(globalData.state);
+    const action = actionObj();
+    if (!state.active.buttonPadId) return;
+    action.profileId = state.active.profileId;
+    action.pageId = state.active.pageId;
+    action.buttonPadId = state.active.buttonPadId;
+    state.actions.push(action);
+    globalData?.setState(state);
+  };
 
-    newState?.profiles?.[profileIndex].pages?.[pageIndex]?.buttonPads?.[
-      buttonPadIndex
-    ]?.actions.push(newAction);
+  const getActions: IntUseActionHooks["getActions"] = () => {
+    const state = _cloneDeep(globalData.state);
+    const actions = _filter(
+      state.actions,
+      (f: IntActions) => f.buttonPadId === state.active.buttonPadId
+    );
 
-    globalData?.setState(newState);
+    return actions;
+  };
+
+  const getAction: IntUseActionHooks["getAction"] = _id => {
+    const actions = _cloneDeep(globalData.state.actions);
+    const action: IntActions | undefined = _find(
+      actions,
+      (f: IntActions) => f._id === _id
+    );
+
+    return action;
   };
 
   const deleteAction: IntUseActionHooks["deleteAction"] = (
     _id: string
   ): void => {
-    const newState = _cloneDeep(globalData?.state);
-    if (!newState) return;
-
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
-    const buttonPadIndex = getButtonPadIndex("null");
-
-    const actions =
-      newState?.profiles?.[profileIndex]?.pages?.[pageIndex].buttonPads?.[
-        buttonPadIndex
-      ]?.actions;
-
-    const newActions = _filter(actions, f => f._id !== _id);
-
-    newState.profiles[profileIndex].pages[pageIndex].buttonPads[
-      buttonPadIndex
-    ].actions = newActions;
-
-    if (newState.activeProfile?.action?._id === _id) {
-      newState.activeProfile.action._id = "";
-      newState.activeProfile.action.index = -1;
-    }
-
-    globalData?.setState(newState);
+    const state = _cloneDeep(globalData.state);
+    const actions = _filter(state.actions, (f: IntActions) => f._id !== _id);
+    if (state.active.actionId === _id) state.active.actionId = "";
+    state.actions = actions;
+    globalData?.setState(state);
   };
 
   const updateAction: IntUseActionHooks["updateAction"] = (
-    action: IntProfilePageButtonPadActions
-  ): void => {
-    const newState = _cloneDeep(globalData?.state);
-    if (!newState) return;
-    const profileIndex = getProfileIndex();
-    const pageIndex = getPageIndex("null");
-    const buttonPadIndex = getButtonPadIndex("null");
-    const actionIndex = getActionIndex(action._id);
+    action: IntActions
+  ) => {
+    const state = _cloneDeep(globalData.state);
+    const index = _findIndex(
+      state.actions,
+      (f: IntActions) => f._id === action._id
+    );
 
-    newState.profiles[profileIndex].pages[pageIndex].buttonPads[
-      buttonPadIndex
-    ].actions[actionIndex] = { ...action };
-
-    globalData?.setState(newState);
+    if (index === -1) return;
+    state.actions[index] = { ...action };
+    globalData?.setState(state);
   };
 
   return {
     activateAction,
+    getActions,
     getAction,
     createAction,
     deleteAction,

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-  height: 32px;
+  height: 2rem;
   color: #6d6e71;
   background: #1e1f22;
   margin: 0;
@@ -21,7 +21,7 @@ export const Ul = styled.ul`
     height: 100%;
     cursor: pointer;
     display: inline-block;
-    padding: 6px 15px 0;
+    padding: 0.375rem 1rem 0;
     -webkit-app-region: no-drag;
     &:hover {
       color: #fff;
@@ -34,7 +34,7 @@ export const UlRight = styled(Ul)`
   text-align: right;
 
   li {
-    padding: 4px 12px 0;
+    padding: 0.25rem 0.75rem 0;
     &:last-child:hover {
       background: #d41224;
     }

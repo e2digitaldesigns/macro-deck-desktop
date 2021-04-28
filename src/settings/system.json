@@ -1,5 +1,33 @@
 {
-  "SETTINGS": {
-    "BUTTON_PAD_AMOUNTS": [6, 8, 12, 15, 24, 32]
+  "BUTTON_PAD_AMOUNTS": [6, 8, 12, 15, 24, 32],
+  "SAVE_ON_CHANGE": ["profiles", "pages", "buttonPads", "actions"],
+  "DEFAULT_STATE": {
+    "BUTTON_PADS": {
+      "profileId": "",
+      "pageId": "-",
+      "_id": "default",
+      "buttonPadNum": -1,
+      "text": "",
+      "textColor": "#ff00ff",
+      "icon": "",
+      "iconColor": "",
+      "image": "",
+      "bgColor": "#ff0000"
+    },
+    "ACTIONS": {
+      "profileId": "",
+      "pageId": "",
+      "buttonPadId": "",
+      "_id": "",
+      "order": 0,
+      "action": "",
+      "subAction": "",
+      "seconds": 0,
+      "url": "",
+      "text": "",
+      "scene": "",
+      "layer": "",
+      "path": ""
+    }
   }
 }

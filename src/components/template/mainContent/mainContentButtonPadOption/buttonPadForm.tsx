@@ -7,19 +7,21 @@ export interface ButtonPadFormProps {}
 
 const ButtonPadForm: React.FC<ButtonPadFormProps> = () => {
   return (
-    <div className="main-content-button-pad-options">
-      <div>
-        <ButtonForm />
-      </div>
+    <>
+      <div className="main-content-button-pad-options">
+        <div>
+          <ButtonForm />
+        </div>
 
-      <div>
-        <ActionList />
-      </div>
+        <div>
+          <ActionList />
+        </div>
 
-      <div>
-        <ActionForm />
+        <div>
+          <ActionForm />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

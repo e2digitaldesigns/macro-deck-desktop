@@ -1,0 +1,114 @@
+.button-pad-wrapper {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(7rem, 1fr));
+  grid-gap: 0.5rem;
+  overflow: hidden;
+
+  .button-pad {
+    min-width: 7rem;
+    min-height: 6rem;
+    background-color: rgba(#6d6d6d, 0.3);
+    .button-pad-inner {
+      transition: border-bottom-color 0.5s;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 0.25rem;
+      border-bottom: 0.125rem transparent solid;
+      &.active {
+        border-bottom-color: $accentColor;
+      }
+    }
+  }
+}
+
+.button-pad-wrapper .button-pad .button-pad-inner {
+  > div {
+    position: absolute;
+  }
+  .button-option-icon {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: darken($fontPrimaryColor, 54.5%);
+    height: 1.5rem;
+    width: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.75s;
+    z-index: 500;
+    &:hover {
+      color: $fontPrimaryColor;
+      background-color: $accentColor;
+    }
+    &.icon-edit {
+      top: 0rem;
+      right: 0.25rem;
+      border-radius: 0 0 50% 50%;
+    }
+    &.icon-close {
+      top: 2rem;
+      right: 0.25rem;
+      border-radius: 50%;
+    }
+  }
+
+  .button-text {
+    font-size: 0.75rem;
+    min-height: 1.25rem;
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: 0.25rem;
+    text-align: center;
+    z-index: 190;
+  }
+
+  .button-icon {
+    font-size: 3rem;
+    top: 0.75rem;
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: 0.25rem;
+    text-align: center;
+    z-index: 180;
+  }
+
+  .button-bg-image {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 170;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .button-test-link {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 250;
+    height: 100%;
+  }
+}
+
+.emptyButtonPad {
+  cursor: pointer;
+  display: grid;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #444;
+  transition: color 0.75s;
+  &:hover {
+    color: #555;
+  }
+}

@@ -1,26 +1,36 @@
 import React from "react";
 import { AddBox, Delete, Edit } from "@material-ui/icons";
 import { useButton, useGlobalData } from "./../../../../../hooks";
+import { IntGlobalData } from "../../../../../types";
 
 export interface ButtonPadParserProps {
   padNumber: number;
 }
 
 const ButtonPadParser: React.FC<ButtonPadParserProps> = ({ padNumber }) => {
-  const globalData = useGlobalData();
-  const { activateButtonPad, deleteButtonPad, readButtonPad } = useButton();
+  const globalData: IntGlobalData = useGlobalData();
+  const {
+    activateButtonPad,
+    createButtonPad,
+    deleteButtonPad,
+    readButtonPad
+  } = useButton();
   const buttonPad = readButtonPad(padNumber);
-  const buttonPadId: string = buttonPad?._id;
-  const activeId = globalData?.state?.activeProfile?.buttonPad?._id;
+  const activeId = globalData?.state?.active?.buttonPadId;
+
+  const handleButtonCreate = (e: React.MouseEvent<HTMLElement>): void => {
+    e.stopPropagation();
+    createButtonPad(padNumber);
+  };
 
   const handleButtonActivate = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
-    activateButtonPad(buttonPadId, padNumber);
+    buttonPad && activateButtonPad(buttonPad._id);
   };
 
   const handleDeleteButton = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
-    buttonPadId && deleteButtonPad(buttonPadId);
+    buttonPad && deleteButtonPad(buttonPad._id);
   };
 
   if (!padNumber) return <div></div>;
@@ -28,7 +38,7 @@ const ButtonPadParser: React.FC<ButtonPadParserProps> = ({ padNumber }) => {
   return (
     <div
       className={`button-pad-inner ${
-        buttonPadId && buttonPadId === activeId ? "active" : ""
+        buttonPad?._id === activeId ? "active" : ""
       }`}
     >
       {buttonPad ? (
@@ -53,7 +63,7 @@ const ButtonPadParser: React.FC<ButtonPadParserProps> = ({ padNumber }) => {
           <div className="button-bg-image"></div>
         </>
       ) : (
-        <div className="emptyButtonPad" onClick={handleButtonActivate}>
+        <div className="emptyButtonPad" onClick={handleButtonCreate}>
           <AddBox fontSize="inherit" />
         </div>
       )}

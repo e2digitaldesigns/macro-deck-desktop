@@ -2,95 +2,111 @@ import _cloneDeep from "lodash/cloneDeep";
 import _filter from "lodash/filter";
 import _find from "lodash/find";
 import _findIndex from "lodash/findIndex";
+import _sortBy from "lodash/sortBy";
 
 import { useGlobalData } from "..";
-import { IntButtonsProfile } from "../../types";
+import {
+  IntProfile,
+  IntButtonPads,
+  IntActions,
+  IntGlobalData,
+  IntPages,
+  IntGlobalContextInterface
+} from "../../types";
 
-import { useHelper, useObj } from "../../hooks";
+import { useObj } from "../../hooks";
 
 export interface IntEditState {
   editing: boolean;
-  profileName: string | undefined;
-  buttonPads: number | undefined;
+  profileName: string;
+  buttonPads: number;
 }
 
 export interface IntUseProfileHook {
   activateProfile: (_id: string) => void;
   createProfile: () => void;
-  readProfile: () => IntButtonsProfile | undefined;
-  updateProfile: (_id: string, state: IntEditState) => void;
+  readProfile: () => IntProfile;
+  updateProfile: (_id: string, profileState: IntEditState) => void;
   deleteProfile: (_id: string) => void;
 }
 
 const useProfileHook = (): IntUseProfileHook => {
-  const globalData: any = useGlobalData();
-  const { profileObj } = useObj();
-  const { getProfileIndex } = useHelper();
+  const globalData: IntGlobalData = useGlobalData();
+  const { pageObj, profileObj } = useObj();
 
   const activateProfile: IntUseProfileHook["activateProfile"] = (_id): void => {
-    const newState = _cloneDeep(globalData?.state);
-    const profile = _find(newState.profiles, { _id });
-    const index = _findIndex(newState.profiles, (f: any) => {
-      return f._id === _id;
-    });
+    const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
+    const pages = _sortBy(
+      _filter(state?.pages, (f: IntPages) => f.profileId === _id),
+      "order"
+    );
 
-    console.clear();
-    console.log(37, { index });
-
-    newState.activeProfile = {
-      _id,
-      index: index,
-      page: { _id: profile?.pages?.[0]?._id, index: 0 },
-      buttonPad: { _id: undefined, index: -1 },
-      action: { _id: undefined, index: -1 }
-    };
-
-    globalData?.setState(newState);
+    state.active.profileId = _id;
+    state.active.pageId = pages?.[0]?._id;
+    state.active.buttonPadId = "";
+    globalData.setState(state);
   };
 
   const createProfile = () => {
-    const newState = _cloneDeep(globalData?.state);
-    const newProfile: IntButtonsProfile = profileObj();
-    newState?.profiles.push(newProfile);
-    globalData?.setState(newState);
+    const state = _cloneDeep(globalData.state);
+    const profile = profileObj();
+    const page = pageObj();
+    page.profileId = profile._id;
+    state.profiles.push(profile);
+    state.pages.push(page);
+    globalData.setState(state);
   };
 
-  const readProfile = () => {
-    const index = getProfileIndex();
+  const readProfile = (): IntProfile | any => {
+    const state = _cloneDeep(globalData.state);
 
-    if (index > -1) {
-      return globalData?.state?.profiles?.[index];
+    const profile = _find(
+      state.profiles,
+      (f: IntProfile) => f._id === state.active.profileId
+    );
+
+    return profile;
+  };
+
+  const updateProfile = (_id: string, profileState: IntEditState): void => {
+    const state = _cloneDeep(globalData.state);
+    const profileIndex = _findIndex(
+      state.profiles,
+      (f: IntProfile) => f._id === _id
+    );
+
+    state.profiles[profileIndex].profileName = profileState.profileName;
+    state.profiles[profileIndex].buttonPads = Number(profileState.buttonPads);
+    globalData.setState(state);
+  };
+
+  const deleteProfile: IntUseProfileHook["deleteProfile"] = (
+    _id: string
+  ): void => {
+    const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
+    state.profiles = _filter(state.profiles, (f: IntProfile) => f._id !== _id);
+    if (state.profiles.length === 0) return;
+
+    state.pages = _filter(state.pages, (f: IntPages) => f.profileId !== _id);
+
+    state.buttonPads = _filter(
+      state.buttonPads,
+      (f: IntButtonPads) => f.profileId !== _id
+    );
+
+    state.actions = _filter(
+      state.actions,
+      (f: IntActions) => f.profileId !== _id
+    );
+
+    if (state.active.profileId === _id) {
+      state.active.profileId = "";
+      state.active.pageId = "";
+      state.active.buttonPadId = "";
+      state.active.actionId = "";
     }
 
-    return undefined;
-  };
-
-  const updateProfile = (_id: string, state: IntEditState): void => {
-    const newState = _cloneDeep(globalData?.state);
-    const index = _findIndex(newState.profiles, (f: any) => {
-      return f._id === _id;
-    });
-    if (index < 0) return;
-    newState.profiles[index].buttonPads = Number(state.buttonPads);
-    newState.profiles[index].profileName = state?.profileName;
-    globalData?.setState(newState);
-  };
-
-  const deleteProfile = (_id: string): void => {
-    const newState = _cloneDeep(globalData?.state);
-    newState.profiles = _filter(newState.profiles, f => f._id !== _id);
-
-    if (globalData?.state?.activeProfile?._id === _id) {
-      newState.activeProfile = {
-        _id: undefined,
-        index: -1,
-        page: { _id: undefined, index: -1 },
-        buttonPad: { _id: undefined, index: -1 },
-        action: { _id: undefined, index: -1 }
-      };
-    }
-
-    globalData?.setState(newState);
+    globalData.setState(state);
   };
 
   return {

@@ -3,6 +3,12 @@ html {
   user-select: none;
 }
 
+@media only screen and (min-width: 2900px) {
+  html {
+    font-size: $fontSize * 2;
+  }
+}
+
 body {
   font-family: "Roboto", sans-serif;
   color: #fff;
@@ -13,6 +19,7 @@ body {
 
 @mixin sectionDefaults() {
   height: 100%;
+  width: 100%;
   border-bottom: 0.125rem solid $accentColor;
   background-color: rgba($sectionBgColor, 0.3);
   overflow: hidden;
@@ -21,22 +28,22 @@ body {
 
 .application-template-wrapper {
   height: calc(100vh - 4rem);
-  min-width: $applicationWidth;
+  width: $applicationWidth;
   margin: 0.5rem auto;
   display: grid;
-  grid-template-columns: 15rem 64rem;
+  grid-template-columns: 0.5rem $sideBarLeftWidth 1rem $mainContentWidth 0.5rem;
 
   .template-side-bar-left,
   .template-main-content {
-    transition: width 0.75s;
+    // transition: width 0.75s;
     @include sectionDefaults();
   }
 
   .template-side-bar-left {
-    margin-left: 0.5rem;
+    // border-left: 0.5rem solid transparent;
   }
 
   .template-main-content {
-    margin: 0 0.5rem;
+    // border-right: 0.5rem solid red;
   }
 }
