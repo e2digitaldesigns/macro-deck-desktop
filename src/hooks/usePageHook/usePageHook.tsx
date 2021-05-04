@@ -28,6 +28,8 @@ const usePageHook = (): IntUsePageHook => {
   const activatePage: IntUsePageHook["activatePage"] = _id => {
     const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
     state.active.pageId = _id;
+    state.active.buttonPadId = "";
+    state.active.actionId = "";
     globalData.setState(state);
   };
 
@@ -50,6 +52,9 @@ const usePageHook = (): IntUsePageHook => {
     const page: IntPages = pageObj();
     page.profileId = state.active.profileId;
     state.pages.push(page);
+    state.active.pageId = page._id;
+    state.active.buttonPadId = "";
+    state.active.actionId = "";
     globalData.setState(state);
   };
 

@@ -2,6 +2,7 @@ export enum Action {
   api,
   delay,
   exe,
+  md,
   obs,
   spotify,
   twitter
@@ -25,24 +26,27 @@ export enum SubAction {
   spotifyStop
 }
 
-interface actions {
-  _id: string;
-  order: number;
-  action?: Action;
-  subAction?: SubAction | undefined;
-  seconds?: number;
-  url?: string;
-  text?: string;
-  scene?: string;
-  layer?: string;
-  path?: string;
-}
+// interface actions {
+//   _id: string;
+//   order: number;
+//   action?: Action;
+//   subAction?: SubAction | undefined;
+//   seconds?: number;
+//   url?: string;
+//   text?: string;
+//   scene?: string;
+//   layer?: string;
+//   path?: string;
+//   page?: string;
+//   profile?: string;
+// }
 
-const actionable = {
-  api: () => {},
-  delay: () => {},
-  exe: () => {},
-  obs: () => {},
-  spotify: () => {},
-  twitter: () => {}
-};
+// const actionable = {
+//   api: () => {},
+//   delay: () => {},
+//   exe: () => {},
+//   md: () => {},
+//   obs: () => {},
+//   spotify: () => {},
+//   twitter: () => {}
+// };

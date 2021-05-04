@@ -9,3 +9,8 @@ npx create-react-app rts --template typescript
 const getProducts = async (): Promise<intToBeReturned> =>{
     await(await fetch('https://fakeStoreApi.com/products')).json();
 }
+
+
+
+electron typescript 2016
+https://davembush.medium.com/typescript-and-electron-the-right-way-141c2e15e4e1

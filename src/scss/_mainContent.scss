@@ -5,8 +5,10 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 25.75rem 3.75rem auto;
+  grid-template-rows: 25.75rem 4.25rem minmax(15rem, auto);
 }
 
 @import "./mainContent/buttonPads";
 @import "./mainContent/buttonPadForm";
+@import "./mainContent/actionList";
+@import "./mainContent/optionHeader";

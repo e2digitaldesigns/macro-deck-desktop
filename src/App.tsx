@@ -7,14 +7,19 @@ import {
 import { IntGlobalContextInterface } from "./types";
 import TemplateWrapper from "./components/template/template";
 import "./scss/styles.scss";
-import db from "./json/db2.json";
 import SETTINGS from "./settings/system.json";
+
+import { useElectron } from "./hooks";
+
+declare const window: any;
+let ipcRenderer = window.electron ? window.electron.ipcRenderer : null;
 
 function App() {
   const [state, setState] = useState<IntGlobalContextInterface>({
     ...defaultState
   });
   const value = useMemo(() => ({ state, setState }), [state, setState]);
+  const { loadAppData, saveAppData } = useElectron();
   const checkers: any = useRef({
     profiles: state.profiles,
     pages: state.pages,
@@ -23,14 +28,19 @@ function App() {
   });
 
   useEffect(() => {
-    setState(state => db);
-    console.log(28, "load data");
+    loadAppData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    console.clear();
+    ipcRenderer &&
+      ipcRenderer.on("database:return", (e: any, data: any) => {
+        typeof data === "object" && setState(data);
+      });
+  }, []);
 
-    const keys = SETTINGS.SAVE_ON_CHANGE;
+  useEffect(() => {
+    const keys = SETTINGS.SAVE_ON_CHANGE_PARAMS;
     const stateCheck: any = {};
     const refCheck: any = {};
     for (let i = 0; i < keys.length; i++) {
@@ -40,20 +50,23 @@ function App() {
     }
 
     if (!_isEqual(stateCheck, refCheck)) {
-      console.log(44, "diff save to file");
       for (let i = 0; i < keys.length; i++) {
         checkers.current[keys[i]] =
           state[keys[i] as keyof IntGlobalContextInterface];
       }
+
+      saveAppData(state);
     }
-  }, [state]);
+  }, [state, saveAppData]);
 
   return (
-    <GlobalContext.Provider value={value}>
-      <div className="App">
-        <TemplateWrapper />
-      </div>
-    </GlobalContext.Provider>
+    <>
+      <GlobalContext.Provider value={value}>
+        <div className="App">
+          <TemplateWrapper />
+        </div>
+      </GlobalContext.Provider>
+    </>
   );
 }
 

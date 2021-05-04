@@ -1,36 +1,57 @@
 const electron = require("electron");
-const fs = require("fs");
 const menuTemplate = require("./menu");
 const listners = require("./listeners");
+const server = require("./server/server");
 
-const { app, BrowserWindow, ipcMain, Menu } = electron;
+const { app: electronApp, BrowserWindow, ipcMain, Menu, Tray } = electron;
 
 let mainWindow;
+let tray = null;
+const width = 1280;
+const height = 785;
 
-app.on("ready", () => {
+electronApp.on("ready", () => {
+  tray = new Tray(__dirname + "/icon.png");
+  const contextMenu = Menu.buildFromTemplate([
+    { label: "Item1", type: "radio" },
+    { label: "Item2", type: "radio" },
+    { label: "Item3", type: "radio", checked: true },
+    { label: "Item4", type: "radio" }
+  ]);
+  tray.setToolTip("This is my application.");
+  tray.setContextMenu(contextMenu);
+
   mainWindow = new BrowserWindow({
-    width: 1280,
-    minWidth: 1280,
-    height: 885,
-    minHeight: 885,
+    width: width,
+    minWidth: width,
+    height: height,
+    minHeight: height,
     resizable: true,
     frame: false,
     backgroundColor: "#1e1e1e",
     movable: true,
     minimizable: true,
     maximizable: true,
+    icon: __dirname + "/icon.png",
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
-      preload: __dirname + "/preload.js"
+      preload: __dirname + "/preload.js",
+      webSecurity: false
     }
   });
 
-  mainWindow.setAspectRatio(1280 / 885);
+  mainWindow.setAspectRatio(width / height);
   mainWindow.loadURL("http://localhost:9001");
   mainWindow.once("ready-to-show", () => mainWindow.show());
+
+  mainWindow.on("minimize", event => {
+    event.preventDefault();
+    // mainWindow.hide();
+  });
+
   mainWindow.on("closed", () => {
-    app.quit();
+    electronApp.quit();
     mainWindow = null;
   });
 
@@ -39,3 +60,5 @@ app.on("ready", () => {
   const mainMenu = Menu.buildFromTemplate(menuTemplate);
   Menu.setApplicationMenu(mainMenu);
 });
+
+server();

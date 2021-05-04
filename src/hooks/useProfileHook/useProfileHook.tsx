@@ -25,6 +25,7 @@ export interface IntEditState {
 export interface IntUseProfileHook {
   activateProfile: (_id: string) => void;
   createProfile: () => void;
+  readProfiles: () => IntProfile[];
   readProfile: () => IntProfile;
   updateProfile: (_id: string, profileState: IntEditState) => void;
   deleteProfile: (_id: string) => void;
@@ -44,6 +45,7 @@ const useProfileHook = (): IntUseProfileHook => {
     state.active.profileId = _id;
     state.active.pageId = pages?.[0]?._id;
     state.active.buttonPadId = "";
+    state.active.actionId = "";
     globalData.setState(state);
   };
 
@@ -54,7 +56,15 @@ const useProfileHook = (): IntUseProfileHook => {
     page.profileId = profile._id;
     state.profiles.push(profile);
     state.pages.push(page);
+    state.active.profileId = profile._id;
+    state.active.pageId = page._id;
     globalData.setState(state);
+  };
+
+  const readProfiles = (): IntProfile[] | any => {
+    const state = _cloneDeep(globalData.state);
+    const profiles = state.profiles;
+    return profiles;
   };
 
   const readProfile = (): IntProfile | any => {
@@ -112,6 +122,7 @@ const useProfileHook = (): IntUseProfileHook => {
   return {
     activateProfile,
     createProfile,
+    readProfiles,
     readProfile,
     updateProfile,
     deleteProfile

@@ -1,0 +1,71 @@
+.action-list-wrapper {
+  width: 100%;
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  height: $mainContentFormHeight;
+  background-color: #171717;
+
+  ::-webkit-scrollbar {
+    width: 0.625rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1f1f1f;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #373737;
+  }
+}
+
+.action-list-wrapper-scroll {
+  height: calc(100% - 1rem);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.action-list-ul {
+  li {
+    display: grid;
+    width: calc(100% - 0.25rem);
+    grid-template-columns: auto 1.5rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.5rem;
+    border-bottom: 0.0625rem solid #212121;
+    align-items: center;
+    transition: background-color 0.5s;
+    &:hover {
+      background-color: #282828;
+      background-image: linear-gradient(to right, #282828, #171717);
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+    &.active {
+      background-image: linear-gradient(to right, $accentColor, #171717);
+    }
+    button {
+      @include submitButton();
+      height: 1.375rem;
+      margin: 0;
+      padding: 0;
+      border-radius: 0.125rem;
+      font-size: 1rem;
+      align-items: center;
+    }
+    span {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.action-list-button {
+  @include submitButton();
+  width: 6rem;
+  height: 1.375rem;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  line-height: 1.5rem;
+  border-radius: 0.125rem;
+  &:focus {
+    display: none;
+  }
+}

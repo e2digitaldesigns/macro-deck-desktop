@@ -2,11 +2,11 @@
 
 exports[`<Template Header Component/> Should match snapshot 1`] = `
 <header
-  class="sc-bdfBwQ dwSDNm"
+  class="sc-bdfBwQ duVZaW"
   data-testid="template-header-component"
 >
   <ul
-    class="sc-gsTCUz flOpgs"
+    class="sc-gsTCUz jiuGXF"
     data-testid="template-header-menu"
   >
     <li>
@@ -26,7 +26,7 @@ exports[`<Template Header Component/> Should match snapshot 1`] = `
     </li>
   </ul>
   <ul
-    class="sc-gsTCUz sc-dlfnbm flOpgs dsKvub"
+    class="sc-gsTCUz sc-dlfnbm jiuGXF lTaWZ"
     data-testid="template-header-options"
   >
     <li

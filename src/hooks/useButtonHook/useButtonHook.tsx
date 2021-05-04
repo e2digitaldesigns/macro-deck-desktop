@@ -19,14 +19,21 @@ export interface IntUseButtonHook {
 
 const useButtonHook = (): IntUseButtonHook => {
   const globalData: IntGlobalData = useGlobalData();
-  const { buttonPadObj } = useObj();
+  const { actionObj, buttonPadObj } = useObj();
 
   const activateButtonPad: IntUseButtonHook["activateButtonPad"] = (
     _id: string
   ): void => {
     const state = _cloneDeep(globalData.state);
+    if (_id === state.active.buttonPadId) return;
+
+    const action = _find(
+      state.actions,
+      (f: IntActions) => f.buttonPadId === _id
+    );
+
     state.active.buttonPadId = _id;
-    state.active.actionId = "";
+    state.active.actionId = action ? action._id : "";
     globalData.setState(state);
   };
 
@@ -37,7 +44,18 @@ const useButtonHook = (): IntUseButtonHook => {
     buttonPad.pageId = globalData.state.active.pageId;
     buttonPad.buttonPadNum = padNumber;
 
+    state.active.buttonPadId = buttonPad._id;
+    state.active.actionId = "";
+
     state.buttonPads.push(buttonPad);
+
+    const action = actionObj();
+    action.profileId = state.active.profileId;
+    action.pageId = state.active.pageId;
+    action.buttonPadId = state.active.buttonPadId;
+    state.actions.push(action);
+    state.active.actionId = action._id;
+
     globalData.setState(state);
   };
 
