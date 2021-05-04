@@ -1,6 +1,62 @@
 {
+  "FILE_TYPES": ".exe",
   "BUTTON_PAD_AMOUNTS": [6, 8, 12, 15, 24, 32],
-  "SAVE_ON_CHANGE": ["profiles", "pages", "buttonPads", "actions"],
+  "MAX_DELAY_SECONDS": 10.5,
+  "SAVE_ON_CHANGE_PARAMS": [
+    "profiles",
+    "pages",
+    "buttonPads",
+    "actions",
+    "settings"
+  ],
+  "ACTION_TYPES": [
+    { "name": "api", "display": "API", "active": true },
+    { "name": "delay", "display": "Delay", "active": true },
+    { "name": "exe", "display": "Exe", "active": true },
+    {
+      "name": "md",
+      "display": "Macro Deck",
+      "active": true,
+      "subActions": [
+        "mdHome",
+        "mdPage",
+        "mdProfile",
+        "mdProfileSelector",
+        "mdReset",
+        "mdSettings"
+      ]
+    },
+    {
+      "name": "obs",
+      "display": "OBS",
+      "active": false,
+      "subActions": [
+        "obsLayerHide",
+        "obsLayerShow",
+        "obsLayerToggle",
+        "obsRecordStart",
+        "obsRecordStop",
+        "obsRecordToggle",
+        "obsSceneChange",
+        "obsStreamStart",
+        "obsStreamStop",
+        "obsStreamToggle"
+      ]
+    },
+    {
+      "name": "spotify",
+      "display": "Spotify",
+      "active": false,
+      "subActions": [
+        "spotifyNext",
+        "spotifyPause",
+        "spotifyPrevious",
+        "spotifyStart",
+        "spotifyStop"
+      ]
+    },
+    { "name": "twitter", "display": "Twitter", "active": false }
+  ],
   "DEFAULT_STATE": {
     "BUTTON_PADS": {
       "profileId": "",
@@ -8,11 +64,11 @@
       "_id": "default",
       "buttonPadNum": -1,
       "text": "",
-      "textColor": "#ff00ff",
+      "textColor": "#ffffff",
       "icon": "",
-      "iconColor": "",
+      "iconColor": "#000000",
       "image": "",
-      "bgColor": "#ff0000"
+      "bgColor": "#000000"
     },
     "ACTIONS": {
       "profileId": "",
@@ -27,7 +83,9 @@
       "text": "",
       "scene": "",
       "layer": "",
-      "path": ""
+      "path": "",
+      "page": "",
+      "profile": ""
     }
   }
 }

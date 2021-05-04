@@ -7,6 +7,11 @@ export interface IntTemplateInformation {
   sideBarState: string;
 }
 
+export interface IntSettings {
+  ipAddress: string;
+  port: string;
+}
+
 export interface IntIdIndex {
   _id: string | undefined;
   index: number | undefined;

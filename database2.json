@@ -1,0 +1,19 @@
+{
+  "userInformation": { "_id": "", "name": "" },
+  "templateInformation": { "sideBarState": "" },
+  "settings": {},
+  "active": {
+    "profileId": "",
+    "pageId": "",
+    "buttonPadId": "",
+    "actionId": ""
+  },
+  "profiles": [
+    { "_id": "zw2hS5aQB", "profileName": "New Profile", "buttonPads": 12 }
+  ],
+  "pages": [
+    { "profileId": "zw2hS5aQB", "_id": "M1cnmmYtTZ", "order": 202105041353855 }
+  ],
+  "buttonPads": [],
+  "actions": []
+}

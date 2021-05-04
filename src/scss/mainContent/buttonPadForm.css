@@ -1,9 +1,0 @@
-.main-content-button-pad-options {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  margin-top: 0.5rem;
-  background-color: #333;
-}
-/*# sourceMappingURL=buttonPadForm.css.map */

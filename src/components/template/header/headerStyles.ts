@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   height: 2rem;
-  color: #6d6e71;
   background: #1e1f22;
   margin: 0;
   display: flex;
@@ -19,13 +18,21 @@ export const Ul = styled.ul`
 
   li {
     height: 100%;
-    cursor: pointer;
+    color: #6d6e71;
     display: inline-block;
-    padding: 0.375rem 1rem 0;
     -webkit-app-region: no-drag;
+    a {
+      color: #6d6e71;
+      height: 100%;
+      display: inline-block;
+      padding: 0.375rem 1rem 0;
+    }
     &:hover {
       color: #fff;
       background: #383942;
+      a {
+        color: #fff;
+      }
     }
   }
 `;

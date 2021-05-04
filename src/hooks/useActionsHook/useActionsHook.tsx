@@ -30,12 +30,13 @@ const useActionHooks = (): IntUseActionHooks => {
 
   const createAction: IntUseActionHooks["createAction"] = (): void => {
     const state = _cloneDeep(globalData.state);
-    const action = actionObj();
     if (!state.active.buttonPadId) return;
+    const action = actionObj();
     action.profileId = state.active.profileId;
     action.pageId = state.active.pageId;
     action.buttonPadId = state.active.buttonPadId;
     state.actions.push(action);
+    state.active.actionId = action._id;
     globalData?.setState(state);
   };
 
@@ -66,6 +67,7 @@ const useActionHooks = (): IntUseActionHooks => {
     const actions = _filter(state.actions, (f: IntActions) => f._id !== _id);
     if (state.active.actionId === _id) state.active.actionId = "";
     state.actions = actions;
+    state.active.actionId = "";
     globalData?.setState(state);
   };
 

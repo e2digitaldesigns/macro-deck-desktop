@@ -23,29 +23,32 @@ const useObjHooks = (): IntUseObjHooks => {
       buttonPadId: "",
       _id: shortid.generate(),
       order: 0,
-      action: "",
+      action: "md",
       subAction: "",
       seconds: 0,
       url: "",
       text: "",
       scene: "",
       layer: "",
-      path: ""
+      path: "",
+      page: "",
+      profile: ""
     };
   };
 
   const buttonPadObj: IntUseObjHooks["buttonPadObj"] = (): IntButtonPads => {
+    const defaultColor = "#333333";
     return {
       profileId: "",
       pageId: "string",
       _id: shortid.generate(),
       buttonPadNum: 0,
-      text: "newby",
-      textColor: "",
+      text: "New Button",
+      textColor: "#dddddd",
       icon: "",
-      iconColor: "",
+      iconColor: defaultColor,
       image: "",
-      bgColor: ""
+      bgColor: defaultColor
     };
   };
 

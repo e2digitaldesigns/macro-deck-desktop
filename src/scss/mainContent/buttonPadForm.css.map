@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,gCAAgC,CAAC;EAC/B,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,UAAU,EAAE,MAAM;EAClB,gBAAgB,EAAE,IAAI;CACvB",
-    "sources": [
-        "buttonPadForm.scss"
-    ],
-    "names": [],
-    "file": "buttonPadForm.css"
-}

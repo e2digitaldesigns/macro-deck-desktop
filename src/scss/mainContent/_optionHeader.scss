@@ -1,0 +1,56 @@
+.page-header-wrapper {
+  width: 100%;
+  //   height: 3.75rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  //   margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  background-color: #1e1e1e;
+  border-bottom: 0.0625rem solid $borderColor;
+  overflow: hidden;
+  > .page-header {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 2.25rem;
+    box-shadow: 0 0.625rem 1.125rem #111;
+    border-bottom: 0.0625rem solid $borderColor;
+    z-index: 500;
+    align-items: center;
+    background-color: #424242;
+  }
+
+  > .page-tabs {
+    position: absolute;
+    width: 100%;
+    height: 1.5rem;
+    top: 2.75rem;
+    display: flex;
+    > .page-tab {
+      background-color: $accentColor;
+      padding: 0 1rem;
+      line-height: 1.5rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.option-header-button {
+  @include submitButton();
+  padding: 0.25rem 0.5rem;
+  margin: 0 0 0 0.5rem;
+  border-radius: 0.125rem;
+  font-size: 0.75rem;
+  height: 1.5rem;
+}
+
+.option-header-select {
+  @include selectField();
+  width: 5.5rem;
+  padding: 0.125rem 0.25rem 0.125rem 0.25rem;
+  margin: 0 0 0 0.25rem;
+  height: 1.75rem;
+  color: white;
+}

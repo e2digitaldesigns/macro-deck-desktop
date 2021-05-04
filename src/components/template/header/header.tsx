@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Close, Fullscreen, FullscreenExit, Remove } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 import { Header, Ul, UlRight } from "./headerStyles";
-import { useElectron } from "./../../../hooks";
+import { useElectron } from "../../../hooks";
 
 export interface ITemplateHeader {}
 
@@ -27,11 +28,21 @@ const TemplateHeader: React.FC<ITemplateHeader> = () => {
     <>
       <Header data-testid="template-header-component">
         <Ul data-testid="template-header-menu">
-          <li>File</li>
-          <li>Edit</li>
-          <li>Selection</li>
-          <li>View</li>
-          <li>Go</li>
+          <li>
+            <Link to="home">Home</Link>
+          </li>
+
+          <li>
+            <Link to="macroDeck">MacroDeck</Link>
+          </li>
+
+          <li>
+            <Link to="settings">Settings</Link>
+          </li>
+
+          <li>
+            <Link to="settings">Help</Link>
+          </li>
         </Ul>
 
         <UlRight data-testid="template-header-options">
