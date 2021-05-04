@@ -16,7 +16,6 @@ const MacroDeck: React.FC<ITemplateWrapperProps> = () => {
         <MainContent />
         <div></div>
       </div>
-      ;
     </>
   );
 };

@@ -6,18 +6,26 @@
   "templateInformation": {
     "sideBarState": ""
   },
-  "settings": {},
+  "settings": {
+    "ipAddress": "192.168.1.87",
+    "port": "8585"
+  },
   "active": {
     "profileId": "BOEXVJyog",
     "pageId": "UArAZooM75",
-    "buttonPadId": "wNaRWvnEE",
-    "actionId": "GPr6rZN7O-"
+    "buttonPadId": "jFCbVRoK_",
+    "actionId": "pxEXcFM9No"
   },
   "profiles": [
     {
       "_id": "BOEXVJyog",
       "profileName": "Poppy 015",
       "buttonPads": 15
+    },
+    {
+      "_id": "GB2d9lnG6",
+      "profileName": "New Profile",
+      "buttonPads": 12
     }
   ],
   "pages": [
@@ -25,6 +33,16 @@
       "profileId": "BOEXVJyog",
       "_id": "UArAZooM75",
       "order": 202106030904892
+    },
+    {
+      "profileId": "GB2d9lnG6",
+      "_id": "Sr4JoqLWpy",
+      "order": 202106075112659
+    },
+    {
+      "profileId": "BOEXVJyog",
+      "_id": "7xQiEvdNx",
+      "order": 202106081304347
     }
   ],
   "buttonPads": [
@@ -147,6 +165,18 @@
       "iconColor": "#333333",
       "image": "",
       "bgColor": "#333333"
+    },
+    {
+      "profileId": "BOEXVJyog",
+      "pageId": "7xQiEvdNx",
+      "_id": "AvqzcRJRa",
+      "buttonPadNum": 15,
+      "text": "This is page 002",
+      "textColor": "#dddddd",
+      "icon": "",
+      "iconColor": "#333333",
+      "image": "",
+      "bgColor": "#333333"
     }
   ],
   "actions": [
@@ -225,14 +255,14 @@
       "_id": "pxEXcFM9No",
       "order": 0,
       "action": "md",
-      "subAction": "",
+      "subAction": "mdPage",
       "seconds": 0,
       "url": "",
       "text": "",
       "scene": "",
       "layer": "",
       "path": "",
-      "page": "",
+      "page": "7xQiEvdNx",
       "profile": ""
     },
     {
@@ -308,6 +338,23 @@
       "pageId": "UArAZooM75",
       "buttonPadId": "buOHBlScz",
       "_id": "aAcwNvlJNg",
+      "order": 0,
+      "action": "md",
+      "subAction": "",
+      "seconds": 0,
+      "url": "",
+      "text": "",
+      "scene": "",
+      "layer": "",
+      "path": "",
+      "page": "",
+      "profile": ""
+    },
+    {
+      "profileId": "BOEXVJyog",
+      "pageId": "7xQiEvdNx",
+      "buttonPadId": "AvqzcRJRa",
+      "_id": "l1eOQCV5XM",
       "order": 0,
       "action": "md",
       "subAction": "",

@@ -44,7 +44,7 @@ const ActionList: React.FC<IntActionList> = () => {
                     onClick={() => handleSelectActionSet(m._id)}
                   >
                     <span>
-                      {m.action} | {m._id}
+                      {m.action} | {m.subAction}
                     </span>
 
                     <button onClick={e => handleDeleteAction(e, m._id)}>

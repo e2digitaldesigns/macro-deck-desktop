@@ -1,0 +1,48 @@
+.setting-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #171717;
+
+  > h1 {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  > ul {
+    color: #8e8e8e;
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-top: 1px solid #2e2e2e;
+    border-bottom: 1px solid #2e2e2e;
+    li {
+      padding: 0 1rem;
+    }
+  }
+}
+
+.setting-wrapper > .setting-switch-container {
+  padding: 1rem;
+  fieldset {
+    > h3 {
+      padding-bottom: 0.75rem;
+    }
+    div {
+      label {
+        font-size: 0.875rem;
+      }
+      input {
+        max-width: 20rem;
+      }
+    }
+  }
+}
+
+.settings-submit-button {
+  @include submitButton();
+  float: left;
+  padding: 0.125rem 0.75rem;
+  margin: 0;
+  height: auto;
+}

@@ -19,12 +19,13 @@ export const Ul = styled.ul`
   li {
     height: 100%;
     color: #6d6e71;
-    cursor: pointer;
     display: inline-block;
-    padding: 0.375rem 1rem 0;
     -webkit-app-region: no-drag;
     a {
       color: #6d6e71;
+      height: 100%;
+      display: inline-block;
+      padding: 0.375rem 1rem 0;
     }
     &:hover {
       color: #fff;

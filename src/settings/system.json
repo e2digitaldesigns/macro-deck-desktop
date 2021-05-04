@@ -2,7 +2,13 @@
   "FILE_TYPES": ".exe",
   "BUTTON_PAD_AMOUNTS": [6, 8, 12, 15, 24, 32],
   "MAX_DELAY_SECONDS": 10.5,
-  "SAVE_ON_CHANGE_PARAMS": ["profiles", "pages", "buttonPads", "actions"],
+  "SAVE_ON_CHANGE_PARAMS": [
+    "profiles",
+    "pages",
+    "buttonPads",
+    "actions",
+    "settings"
+  ],
   "ACTION_TYPES": [
     { "name": "api", "display": "API", "active": true },
     { "name": "delay", "display": "Delay", "active": true },

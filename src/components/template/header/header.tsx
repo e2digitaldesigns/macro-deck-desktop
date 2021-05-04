@@ -40,7 +40,9 @@ const TemplateHeader: React.FC<ITemplateHeader> = () => {
             <Link to="settings">Settings</Link>
           </li>
 
-          <li>hello good bye</li>
+          <li>
+            <Link to="settings">Help</Link>
+          </li>
         </Ul>
 
         <UlRight data-testid="template-header-options">

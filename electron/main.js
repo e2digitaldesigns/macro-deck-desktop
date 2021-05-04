@@ -2,6 +2,7 @@ const electron = require("electron");
 const menuTemplate = require("./menu");
 const listners = require("./listeners");
 const server = require("./server/server");
+require("./appSystem")();
 
 const { app: electronApp, BrowserWindow, ipcMain, Menu, Tray } = electron;
 
@@ -9,6 +10,8 @@ let mainWindow;
 let tray = null;
 const width = 1280;
 const height = 785;
+
+console.log(__dirname);
 
 electronApp.on("ready", () => {
   tray = new Tray(__dirname + "/icon.png");
@@ -43,6 +46,7 @@ electronApp.on("ready", () => {
 
   mainWindow.setAspectRatio(width / height);
   mainWindow.loadURL("http://localhost:9001");
+  // mainWindow.loadURL("H:\\Macro\\Macro - Desktop\\build\\index.html");
   mainWindow.once("ready-to-show", () => mainWindow.show());
 
   mainWindow.on("minimize", event => {
