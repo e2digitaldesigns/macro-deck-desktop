@@ -1,21 +1,21 @@
 .page-header-wrapper {
   width: 100%;
-  //   height: 3.75rem;
+  //   height: 3.75em;
   height: 100%;
   position: relative;
   overflow: hidden;
-  //   margin-top: 0.5rem;
-  padding-top: 0.5rem;
+  //   margin-top: 0.5em;
+  padding-top: 0.5em;
   background-color: #1e1e1e;
-  border-bottom: 0.0625rem solid $borderColor;
+  border-bottom: 0.0625em solid $borderColor;
   overflow: hidden;
   > .page-header {
     position: absolute;
     display: flex;
     width: 100%;
-    height: 2.25rem;
-    box-shadow: 0 0.625rem 1.125rem #111;
-    border-bottom: 0.0625rem solid $borderColor;
+    height: 2.25em;
+    box-shadow: 0 0.625em 1.125em #111;
+    border-bottom: 0.0625em solid $borderColor;
     z-index: 500;
     align-items: center;
     background-color: #424242;
@@ -24,14 +24,14 @@
   > .page-tabs {
     position: absolute;
     width: 100%;
-    height: 1.5rem;
-    top: 2.75rem;
+    height: 1.5em;
+    top: 2.75em;
     display: flex;
     > .page-tab {
       background-color: $accentColor;
-      padding: 0 1rem;
-      line-height: 1.5rem;
-      font-size: 0.875rem;
+      padding: 0 1em;
+      line-height: 1.5em;
+      font-size: 0.875em;
       text-transform: uppercase;
     }
   }
@@ -39,18 +39,18 @@
 
 .option-header-button {
   @include submitButton();
-  padding: 0.25rem 0.5rem;
-  margin: 0 0 0 0.5rem;
-  border-radius: 0.125rem;
-  font-size: 0.75rem;
-  height: 1.5rem;
+  padding: 0.25em 0.5em;
+  margin: 0 0 0 0.5em;
+  border-radius: 0.125em;
+  font-size: 0.75em;
+  height: 1.5em;
 }
 
 .option-header-select {
   @include selectField();
-  width: 5.5rem;
-  padding: 0.125rem 0.25rem 0.125rem 0.25rem;
-  margin: 0 0 0 0.25rem;
-  height: 1.75rem;
+  width: 5.5em;
+  padding: 0.125em 0.25em 0.125em 0.25em;
+  margin: 0 0 0 0.25em;
+  height: 1.75em;
   color: white;
 }

@@ -6,18 +6,14 @@ $accentColor: #f542e9;
 $fontPrimaryColor: #fff;
 $borderColor: #111;
 
-$wrapperMarginTop: 1rem;
-$largeWidthAddition: 5rem;
+$wrapperMarginTop: 1em;
+$largeWidthAddition: 5em;
 
-$applicationWidth: 80rem;
+$applicationWidth: 80em;
 
-$sideBarLeftWidth: 15rem;
+$sideBarLeftWidth: 15em;
 $sideBarLeftWidthLarge: $sideBarLeftWidth + $largeWidthAddition;
 
-$mainContentWidth: 63rem;
+$mainContentWidth: 63em;
 
-$sideBarRightWidth: $applicationWidth - ($sideBarLeftWidth + $mainContentWidth);
-
-$sideBarRightWidthLarge: $sideBarLeftWidthLarge;
-
-$mainContentFormHeight: 10rem;
+$mainContentFormHeight: 10em;

@@ -1,15 +1,15 @@
 @mixin textField() {
   color: #fff;
   width: 100%;
-  padding: 0.5rem 0.5rem;
-  margin: 0.5rem 0;
+  padding: 0.5em 0.5em;
+  margin: 0.5em 0;
   display: inline-block;
   box-sizing: border-box;
-  border-radius: 0.25rem;
-  border: 0.125rem solid #55565a;
+  border-radius: 0.25em;
+  border: 0.125em solid #55565a;
   background-color: #1e1f22 !important;
   outline: none;
-  font-size: 0.875rem;
+  font-size: 0.875em;
   &:focus {
     color: #fff;
     border-color: $accentColor !important;
@@ -20,15 +20,15 @@
   appearance: none;
   color: #fff;
   width: 100%;
-  padding: 0.5rem 0.5rem;
-  margin: 0.5rem 0;
+  padding: 0.5em 0.5em;
+  margin: 0.5em 0;
   display: inline-block;
   box-sizing: border-box;
-  border-radius: 0.25rem;
-  border: 0.125rem solid #55565a;
+  border-radius: 0.25em;
+  border: 0.125em solid #55565a;
   background-color: #1e1f22;
   outline: none;
-  font-size: 0.875rem;
+  font-size: 0.875em;
   &:focus {
     border-color: $accentColor;
   }
@@ -36,17 +36,17 @@
     font-weight: normal;
     border: none;
     outline: none !important;
-    font-size: 0.875rem;
+    font-size: 0.875em;
   }
 }
 
 @mixin submitButton {
   background-color: $accentColor;
   color: white;
-  padding: 0.5rem 0.5rem;
-  margin: 0.5rem 0;
+  padding: 0.5em 0.5em;
+  margin: 0.5em 0;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 0.25em;
   float: right;
   cursor: pointer;
   border: none;

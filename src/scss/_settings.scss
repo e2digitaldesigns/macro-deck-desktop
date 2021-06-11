@@ -4,36 +4,36 @@
   background-color: #171717;
 
   > h1 {
-    font-size: 1.5rem;
-    padding: 1rem;
+    font-size: 1.5em;
+    padding: 1em;
   }
 
   > ul {
     color: #8e8e8e;
     display: flex;
     flex-direction: row;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
     border-top: 1px solid #2e2e2e;
     border-bottom: 1px solid #2e2e2e;
     li {
-      padding: 0 1rem;
+      padding: 0 1em;
     }
   }
 }
 
 .setting-wrapper > .setting-switch-container {
-  padding: 1rem;
+  padding: 1em;
   fieldset {
     > h3 {
-      padding-bottom: 0.75rem;
+      padding-bottom: 0.75em;
     }
     div {
       label {
-        font-size: 0.875rem;
+        font-size: 0.875em;
       }
       input {
-        max-width: 20rem;
+        max-width: 20em;
       }
     }
   }
@@ -42,7 +42,7 @@
 .settings-submit-button {
   @include submitButton();
   float: left;
-  padding: 0.125rem 0.75rem;
+  padding: 0.125em 0.75em;
   margin: 0;
   height: auto;
 }
