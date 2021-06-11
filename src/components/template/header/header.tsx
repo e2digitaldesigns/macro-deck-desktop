@@ -58,14 +58,14 @@ const TemplateHeader: React.FC<ITemplateHeader> = () => {
               data-testid="template-header-full-screen-exit-button"
               onClick={() => handleFullScreenToggle(false)}
             >
-              <FullscreenExit />{" "}
+              <FullscreenExit />
             </li>
           ) : (
             <li
               data-testid="template-header-full-screen-button"
               onClick={() => handleFullScreenToggle(true)}
             >
-              <Fullscreen />
+              <Fullscreen fontSize="inherit" />
             </li>
           )}
           <li

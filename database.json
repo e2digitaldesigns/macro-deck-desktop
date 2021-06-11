@@ -13,8 +13,8 @@
   "active": {
     "profileId": "BOEXVJyog",
     "pageId": "UArAZooM75",
-    "buttonPadId": "jFCbVRoK_",
-    "actionId": "pxEXcFM9No"
+    "buttonPadId": "wxOhtSUKF",
+    "actionId": "TA-LrgevLx"
   },
   "profiles": [
     {
@@ -172,6 +172,18 @@
       "_id": "AvqzcRJRa",
       "buttonPadNum": 15,
       "text": "This is page 002",
+      "textColor": "#dddddd",
+      "icon": "",
+      "iconColor": "#333333",
+      "image": "",
+      "bgColor": "#333333"
+    },
+    {
+      "profileId": "BOEXVJyog",
+      "pageId": "UArAZooM75",
+      "_id": "wxOhtSUKF",
+      "buttonPadNum": 6,
+      "text": "New Button",
       "textColor": "#dddddd",
       "icon": "",
       "iconColor": "#333333",
@@ -355,6 +367,23 @@
       "pageId": "7xQiEvdNx",
       "buttonPadId": "AvqzcRJRa",
       "_id": "l1eOQCV5XM",
+      "order": 0,
+      "action": "md",
+      "subAction": "",
+      "seconds": 0,
+      "url": "",
+      "text": "",
+      "scene": "",
+      "layer": "",
+      "path": "",
+      "page": "",
+      "profile": ""
+    },
+    {
+      "profileId": "BOEXVJyog",
+      "pageId": "UArAZooM75",
+      "buttonPadId": "wxOhtSUKF",
+      "_id": "TA-LrgevLx",
       "order": 0,
       "action": "md",
       "subAction": "",

@@ -59,6 +59,37 @@ function App() {
     }
   }, [state, saveAppData]);
 
+  useEffect(() => {
+    const resizeListener = () => {
+      const thisApp: any = document.querySelector(".App");
+      const width =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
+
+      let fontSize = width * 0.01145;
+      // let fontSize = width * 0.0125;
+
+      fontSize =
+        fontSize <= SETTINGS.FONT_SIZE_MIN
+          ? SETTINGS.FONT_SIZE_MIN
+          : fontSize >= SETTINGS.FONT_SIZE_MAX
+          ? SETTINGS.FONT_SIZE_MAX
+          : fontSize;
+
+      thisApp.style.fontSize = `${fontSize.toFixed(2)}px`;
+    };
+
+    resizeListener();
+    // set resize listener
+    window.addEventListener("resize", resizeListener);
+
+    return () => {
+      // remove resize listener
+      window.removeEventListener("resize", resizeListener);
+    };
+  }, []);
+
   return (
     <>
       <GlobalContext.Provider value={value}>

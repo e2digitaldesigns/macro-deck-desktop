@@ -1,12 +1,5 @@
 html {
-  font: $fontSize;
   user-select: none;
-}
-
-@media only screen and (min-width: 2900px) {
-  html {
-    font-size: $fontSize * 2;
-  }
 }
 
 body {
@@ -17,21 +10,25 @@ body {
   background-image: url("../images/black_mamba.png");
 }
 
+.App {
+  font-size: 16px;
+}
+
 @mixin sectionDefaults() {
   height: 100%;
   width: 100%;
-  border-bottom: 0.125rem solid $accentColor;
+  border-bottom: 0.125em solid $accentColor;
   background-color: rgba($sectionBgColor, 0.3);
   overflow: hidden;
-  padding: 0.5rem;
+  padding: 0.5em;
 }
 
 .application-template-wrapper {
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 4em);
   width: $applicationWidth;
-  margin: 0.5rem auto;
+  margin: 0.5em auto;
   display: grid;
-  grid-template-columns: 0.5rem $sideBarLeftWidth 1rem $mainContentWidth 0.5rem;
+  grid-template-columns: 0.5em $sideBarLeftWidth 1em $mainContentWidth 0.5em;
 
   .template-side-bar-left,
   .template-main-content {
@@ -40,10 +37,10 @@ body {
   }
 
   .template-side-bar-left {
-    // border-left: 0.5rem solid transparent;
+    // border-left: 0.5em solid transparent;
   }
 
   .template-main-content {
-    // border-right: 0.5rem solid red;
+    // border-right: 0.5em solid red;
   }
 }
