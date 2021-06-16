@@ -45,8 +45,9 @@ electronApp.on("ready", () => {
   });
 
   mainWindow.setAspectRatio(width / height);
-  mainWindow.loadURL("http://localhost:9001");
+  // mainWindow.loadURL("http://localhost:9001");
   // mainWindow.loadURL("H:\\Macro\\Macro - Desktop\\build\\index.html");
+  mainWindow.loadFile(__dirname + "/build/index.html");
   mainWindow.once("ready-to-show", () => mainWindow.show());
 
   mainWindow.on("minimize", event => {

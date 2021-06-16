@@ -1,6 +1,8 @@
 {
   "name": "macro-desktop",
+  "productName": "the-macro-deck",
   "version": "0.1.0",
+  "description": "Description",
   "private": true,
   "main": "./electron/main.js",
   "homepage": "./",
@@ -44,11 +46,15 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
+    "dev": "electron .",
     "eject": "react-scripts eject",
-    "dev": "electron ."
+    "make": "electron-forge make",
+    "package": "electron-forge package",
+    "postbuild": "cpx build/** electron/build ",
+    "publish": "electron-forge publish",
+    "start": "react-scripts start",
+    "test": "react-scripts test --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -69,6 +75,11 @@
     ]
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.53",
+    "@electron-forge/maker-deb": "^6.0.0-beta.53",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.53",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.53",
+    "@electron-forge/maker-zip": "^6.0.0-beta.53",
     "@testing-library/cypress": "^7.0.5",
     "@types/electron": "^1.6.10",
     "@types/enzyme": "^3.10.8",
@@ -79,11 +90,44 @@
     "@types/shortid": "0.0.29",
     "@types/styled-components": "^5.1.9",
     "concurrently": "^6.0.2",
+    "cpx": "^1.5.0",
     "cypress": "^6.8.0",
     "electron": "^12.0.4",
+    "electron-squirrel-startup": "^1.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "sinon": "^9.2.3",
     "wait-on": "^5.3.0"
+  },
+  "author": {
+    "name": "e2digitaldesigns",
+    "email": "info@expresslayouts.com"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "my_elect_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
