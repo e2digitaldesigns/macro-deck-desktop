@@ -3,6 +3,7 @@ import _filter from "lodash/filter";
 import _find from "lodash/find";
 import _findIndex from "lodash/findIndex";
 import _sortBy from "lodash/sortBy";
+import { v4 as uuidv4 } from "uuid";
 
 import { useGlobalData } from "..";
 import {
@@ -23,19 +24,21 @@ export interface IntEditState {
 }
 
 export interface IntUseProfileHook {
-  activateProfile: (_id: string) => void;
-  createProfile: () => void;
-  readProfiles: () => IntProfile[];
-  readProfile: () => IntProfile;
-  updateProfile: (_id: string, profileState: IntEditState) => void;
-  deleteProfile: (_id: string) => void;
+  (): {
+    activateProfile: (_id: string) => void;
+    createProfile: () => void;
+    readProfiles: () => IntProfile[];
+    readProfile: () => IntProfile;
+    updateProfile: (_id: string, profileState: IntEditState) => void;
+    deleteProfile: (_id: string) => void;
+  };
 }
 
-const useProfileHook = (): IntUseProfileHook => {
+const useProfileHook: IntUseProfileHook = () => {
   const globalData: IntGlobalData = useGlobalData();
   const { pageObj, profileObj } = useObj();
 
-  const activateProfile: IntUseProfileHook["activateProfile"] = (_id): void => {
+  const activateProfile = (_id: string): void => {
     const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
     const pages = _sortBy(
       _filter(state?.pages, (f: IntPages) => f.profileId === _id),
@@ -46,18 +49,22 @@ const useProfileHook = (): IntUseProfileHook => {
     state.active.pageId = pages?.[0]?._id;
     state.active.buttonPadId = "";
     state.active.actionId = "";
+
     globalData.setState(state);
   };
 
   const createProfile = () => {
     const state = _cloneDeep(globalData.state);
+
     const profile = profileObj();
     const page = pageObj();
+
     page.profileId = profile._id;
     state.profiles.push(profile);
     state.pages.push(page);
     state.active.profileId = profile._id;
     state.active.pageId = page._id;
+
     globalData.setState(state);
   };
 
@@ -90,9 +97,7 @@ const useProfileHook = (): IntUseProfileHook => {
     globalData.setState(state);
   };
 
-  const deleteProfile: IntUseProfileHook["deleteProfile"] = (
-    _id: string
-  ): void => {
+  const deleteProfile = (_id: string): void => {
     const state: IntGlobalContextInterface = _cloneDeep(globalData.state);
     state.profiles = _filter(state.profiles, (f: IntProfile) => f._id !== _id);
     if (state.profiles.length === 0) return;

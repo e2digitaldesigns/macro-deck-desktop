@@ -7,7 +7,10 @@ export interface ITemplateWrapperProps {}
 const MacroDeck: React.FC<ITemplateWrapperProps> = () => {
   return (
     <>
-      <div className="application-template-wrapper">
+      <div
+        className="application-template-wrapper"
+        data-testid="application-template-wrapper"
+      >
         <div></div>
         <div className="template-side-bar-left">
           <SideBar />

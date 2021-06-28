@@ -1,0 +1,88 @@
+{
+  "setState": "",
+  "state": {
+    "userInformation": {
+      "_id": "",
+      "name": ""
+    },
+    "templateInformation": {
+      "sideBarState": "hello hello hello"
+    },
+    "settings": {},
+    "active": {
+      "profileId": "profile-id-001",
+      "buttonPadId": "",
+      "actionId": "",
+      "pageId": ""
+    },
+    "profiles": [
+      {
+        "_id": "profile-id-001",
+        "profileName": "001 profile 6 pads",
+        "buttonPads": 6
+      },
+      {
+        "_id": "profile-id-002",
+        "profileName": "002 profile 32 pads",
+        "buttonPads": 32
+      },
+      {
+        "_id": "profile-id-003",
+        "profileName": "003 profile 0 pads",
+        "buttonPads": 0
+      }
+    ],
+    "pages": [
+      {
+        "profileId": "profile-id-001",
+        "_id": "page-id-001",
+        "order": 202106030904892
+      }
+    ],
+    "buttonPads": [
+      {
+        "profileId": "profile-id-001",
+        "pageId": "page-id-001",
+        "_id": "button-id-001",
+        "buttonPadNum": 1,
+        "text": "Button 001",
+        "textColor": "#dddddd",
+        "icon": "home",
+        "iconColor": "#333333",
+        "image": "",
+        "bgColor": "#333333"
+      },
+      {
+        "profileId": "profile-id-001",
+        "pageId": "page-id-001",
+        "_id": "button-id-002",
+        "buttonPadNum": 2,
+        "text": "Button 002",
+        "textColor": "#dddddd",
+        "icon": "home",
+        "iconColor": "#333333",
+        "image": "",
+        "bgColor": "#333333"
+      }
+    ],
+    "actions": [
+      {
+        "profileId": "profile-id-003",
+        "pageId": "UArAZooM75",
+        "buttonPadId": "Do15TYNrR",
+        "_id": "pzMIRUrAOB",
+        "order": 0,
+        "action": "md",
+        "subAction": "mdHome",
+        "seconds": 0,
+        "url": "",
+        "text": "",
+        "scene": "",
+        "layer": "",
+        "path": "",
+        "page": "",
+        "profile": ""
+      }
+    ]
+  }
+}

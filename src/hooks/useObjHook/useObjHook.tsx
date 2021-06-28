@@ -1,4 +1,4 @@
-import shortid from "shortid";
+import { v4 as uuidv4 } from "uuid";
 import timestamp from "time-stamp";
 
 import {
@@ -9,19 +9,19 @@ import {
 } from "./../../types/globalContextType";
 
 export interface IntUseObjHooks {
-  actionObj: () => IntActions;
-  buttonPadObj: () => IntButtonPads;
-  profileObj: () => IntProfile;
-  pageObj: () => IntPages;
+  actionObj: (_id?: string) => IntActions;
+  buttonPadObj: (_id?: string) => IntButtonPads;
+  profileObj: (_id?: string) => IntProfile;
+  pageObj: (_id?: string) => IntPages;
 }
 
 const useObjHooks = (): IntUseObjHooks => {
-  const actionObj: IntUseObjHooks["actionObj"] = () => {
+  const actionObj: IntUseObjHooks["actionObj"] = _id => {
     return {
       profileId: "",
       pageId: "",
       buttonPadId: "",
-      _id: shortid.generate(),
+      _id: _id || uuidv4(),
       order: 0,
       action: "md",
       subAction: "",
@@ -36,12 +36,12 @@ const useObjHooks = (): IntUseObjHooks => {
     };
   };
 
-  const buttonPadObj: IntUseObjHooks["buttonPadObj"] = (): IntButtonPads => {
+  const buttonPadObj: IntUseObjHooks["buttonPadObj"] = (_id): IntButtonPads => {
     const defaultColor = "#333333";
     return {
       profileId: "",
       pageId: "string",
-      _id: shortid.generate(),
+      _id: _id || uuidv4(),
       buttonPadNum: 0,
       text: "New Button",
       textColor: "#dddddd",
@@ -52,17 +52,17 @@ const useObjHooks = (): IntUseObjHooks => {
     };
   };
 
-  const pageObj: IntUseObjHooks["pageObj"] = () => {
+  const pageObj: IntUseObjHooks["pageObj"] = _id => {
     return {
       profileId: "",
-      _id: shortid.generate(),
+      _id: _id || uuidv4(),
       order: Number(timestamp("YYYYMMDDmmssms"))
     };
   };
 
-  const profileObj: IntUseObjHooks["profileObj"] = () => {
+  const profileObj: IntUseObjHooks["profileObj"] = _id => {
     return {
-      _id: shortid.generate(),
+      _id: _id || uuidv4(),
       profileName: "New Profile",
       buttonPads: 12
     };

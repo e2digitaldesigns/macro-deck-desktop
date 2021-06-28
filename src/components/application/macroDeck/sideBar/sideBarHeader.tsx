@@ -7,6 +7,7 @@ export interface IntTemplateSideBarHeader {}
 const TemplateSideBarHeader: React.FC<IntTemplateSideBarHeader> = () => {
   const globalData = useGlobalData();
   const { createProfile } = useProfile();
+
   return (
     <>
       <div
@@ -17,10 +18,16 @@ const TemplateSideBarHeader: React.FC<IntTemplateSideBarHeader> = () => {
           <div className="icon prefix-icon">
             <FileCopy fontSize="inherit" />
           </div>
-          <div>Profiles ({globalData?.state?.profiles?.length})</div>
+          <div>
+            Profiles ({" "}
+            <span data-testid="template-sidebar-header__profile-count">
+              {globalData?.state?.profiles?.length}
+            </span>
+            )
+          </div>
           <div
             className="icon suffix-icon"
-            data-testid="template-sidebar-create-new-profile"
+            data-testid="template-sidebar-header__new-profile-button"
             onClick={createProfile}
           >
             <AddCircleOutline fontSize="inherit" />

@@ -16,9 +16,6 @@ const MainContent: React.FC<MainContentProps> = () => {
         <MainContentButtonPads />
         <OptionHeader />
         <MainContentButtonPadOptions />
-        {/* <div style={{ backgroundColor: "green" }}>123</div> */}
-        {/* <div style={{ backgroundColor: "blue" }}>123</div> */}
-        {/* <div style={{ backgroundColor: "red" }}>123</div> */}
       </div>
     </>
   );

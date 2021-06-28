@@ -1,59 +1,42 @@
-import React from "react";
 import "@testing-library/jest-dom";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import SideBarItems from "./sideBarItem";
-import * as hooks from "../../../../hooks";
-import * as useProfileHook from "../../../../hooks/useProfileHook";
+import initState from "./__mocks__/mockState.json";
 
-const mockData = {
-  _id: "the-id",
-  profileName: "the profile name",
-  buttonPads: 24
+const mockState = { ...initState, setState: jest.fn() };
+
+const mockHooks = {
+  activateProfile: jest.fn(),
+  createProfile: jest.fn(),
+  readProfiles: jest.fn(),
+  readProfile: jest.fn(),
+  updateProfile: jest.fn(),
+  deleteProfile: jest.fn(),
+  useGlobalData: mockState
 };
 
-const mockState = {
-  userInformation: {
-    _id: "",
-    name: ""
-  },
-  templateInformation: {
-    sideBarState: ""
-  },
-  settings: {},
-  active: {
-    profileId: "",
-    buttonPadId: "",
-    actionId: "",
-    pageId: ""
-  },
-  profiles: [],
-  pages: [],
-  buttonPads: []
-};
-
-const mockUseProfile = {
-  deleteProfile: () => jest.fn(),
-  activateProfile: () => jest.fn(),
-  updateProfile: () => jest.fn()
-};
-
-jest.mock("../../../hooks", () => ({
+jest.mock("../../../../hooks", () => ({
   useProfile: () => ({
-    deleteProfile: () => jest.fn(),
-    activateProfile: () => jest.fn(),
-    updateProfile: () => jest.fn()
+    activateProfile: (_id: string) => {
+      mockHooks.activateProfile(_id);
+      mockState.state.active.profileId = _id;
+    },
+    updateProfile: (_id: string, profileState: any) =>
+      mockHooks.updateProfile(_id, profileState),
+    deleteProfile: mockHooks.deleteProfile
   }),
-  useGlobalData: () => mockState
+  useGlobalData: () => mockHooks.useGlobalData
 }));
 
 const preFix = "template-sidebar-item__";
 
 const testSetup = () => {
-  return render(<SideBarItems profile={mockData} />);
+  return render(<SideBarItems profile={mockState.state.profiles[0]} />);
 };
 
 let wrapper: any = null;
 beforeEach(() => {
+  mockState.state.active.profileId = "";
   wrapper = testSetup();
 });
 
@@ -62,7 +45,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe("<Template Header Component/>", () => {
+describe("<SideBarItem/>", () => {
   it("Should render without errors", () => {
     const component = wrapper.getByTestId(preFix + "component");
     expect(component).toBeTruthy();
@@ -72,48 +55,76 @@ describe("<Template Header Component/>", () => {
   it("Should toggle menu-item-active class", () => {
     const component = wrapper.getByTestId(preFix + "component");
     expect(component).toHaveClass("menu-item-inactive");
+  });
 
+  it("Should call ActivateProfile Hook", () => {
     const menuItemButton = wrapper.getByTestId(
-      preFix + "component-menu-item-button"
+      `${preFix}component-menu-item-button`
     );
-    expect(menuItemButton).toBeTruthy();
+
+    fireEvent.click(menuItemButton);
+    expect(mockHooks.activateProfile).toHaveBeenCalledTimes(1);
+    expect(mockHooks.activateProfile).toHaveBeenCalledWith(
+      mockState.state.profiles[0]._id
+    );
+  });
+
+  it("Should not call ActivateProfile Hook", () => {
+    const menuItemButton = wrapper.getByTestId(
+      `${preFix}component-menu-item-button`
+    );
+
+    fireEvent.click(menuItemButton);
+    expect(mockHooks.activateProfile).toHaveBeenCalledTimes(1);
+    expect(mockHooks.activateProfile).toHaveBeenCalledWith(
+      mockState.state.profiles[0]._id
+    );
+
+    const editButton = wrapper.getByTestId(preFix + "button-edit");
+    fireEvent.click(editButton);
+
+    fireEvent.click(menuItemButton);
+    expect(mockHooks.activateProfile).toHaveBeenCalledTimes(1);
+  });
+
+  it("should toggle button edit", async () => {
+    const menuItemButton = wrapper.getByTestId(
+      `${preFix}component-menu-item-button`
+    );
 
     fireEvent.click(menuItemButton);
 
-    waitFor(() => {
-      expect(component).toHaveClass("menu-item-active");
-    });
+    const editButton = wrapper.getByTestId(preFix + "button-edit");
+    fireEvent.click(editButton);
+
+    const component = await screen.queryByTestId(
+      preFix + "menu-item-information-wrapper"
+    );
+
+    expect(component).toHaveClass("menu-item-information-active");
   });
 
   it("Should delete profile", () => {
-    const component = wrapper.getByTestId(preFix + "component");
     const deleteItemButton = wrapper.getByTestId(preFix + "button-remove");
     expect(deleteItemButton).toBeTruthy();
-
     fireEvent.click(deleteItemButton);
+    expect(mockHooks.deleteProfile).toHaveBeenCalledTimes(1);
   });
 
-  it("Should render header information", () => {
-    const component = wrapper.getByTestId(preFix + "button-text");
-
-    expect(component).toBeTruthy();
-    expect(component).toHaveTextContent(
-      `${mockData.profileName} (${mockData.buttonPads})`
+  it("Should delete profile and set editing to false", () => {
+    const menuItemButton = wrapper.getByTestId(
+      `${preFix}component-menu-item-button`
     );
-  });
 
-  it("Should render ProfileName values", () => {
-    const component = wrapper.getByTestId(preFix + "input_profile-name");
+    fireEvent.click(menuItemButton);
 
-    expect(component).toBeTruthy();
-    expect(component.value).toBe(mockData.profileName);
-  });
+    const editButton = wrapper.getByTestId(preFix + "button-edit");
+    fireEvent.click(editButton);
 
-  it("Should render ButtonPad values", () => {
-    const component = wrapper.getByTestId(preFix + "select-button-pads");
-
-    expect(component).toBeTruthy();
-    expect(component.value).toBe(mockData.buttonPads.toString());
+    const deleteItemButton = wrapper.getByTestId(preFix + "button-remove");
+    expect(deleteItemButton).toBeTruthy();
+    fireEvent.click(deleteItemButton);
+    expect(mockHooks.deleteProfile).toHaveBeenCalledTimes(1);
   });
 
   it("Should render submit button", () => {
@@ -121,38 +132,47 @@ describe("<Template Header Component/>", () => {
     expect(submitButton).toBeTruthy();
   });
 
-  it("Update should succeed", () => {
-    const spy = jest.spyOn(hooks, "useProfile");
-
-    const submitButton = wrapper.getByTestId(preFix + "button-submit");
-    const newNameGood = "New Profile Name XXXXX XXXXX XXXXX";
-    // const newPadCount = 12;
+  it("Profile name regex should succeed", () => {
+    const profileName = "New Profile Name";
 
     const input = wrapper.getByTestId(preFix + "input_profile-name");
-    fireEvent.change(input, { target: { value: newNameGood } });
-    expect(input.value).toBe(newNameGood);
+    fireEvent.change(input, { target: { value: profileName } });
+    expect(input.value).toBe(profileName);
+  });
 
-    // const select = wrapper.getByTestId(preFix + "select-button-pads");
-    // fireEvent.change(select, { target: { value: newPadCount } });
-    // expect(select.value).toBe(newPadCount.toString());
+  it("Profile name regex should fail", () => {
+    const profileName = "@@@@????";
+
+    const input = wrapper.getByTestId(preFix + "input_profile-name");
+    fireEvent.change(input, { target: { value: profileName } });
+    expect(input.value).toBe(mockState.state.profiles[0].profileName);
+  });
+
+  it("Update submit should succeed", async () => {
+    const submitButton = wrapper.getByTestId(preFix + "button-submit");
+    const profileName = "New Profile Name";
+    const input = wrapper.getByTestId(preFix + "input_profile-name");
+    fireEvent.change(input, { target: { value: profileName } });
+    expect(input.value).toBe(profileName);
 
     fireEvent.click(submitButton);
-    // expect(spy).toHaveBeenCalled();
-    spy.mockRestore();
+    await waitFor(() => {
+      expect(mockHooks.updateProfile).toHaveBeenCalledTimes(1);
+    });
   });
-});
 
-it("Update should fail", () => {
-  const submitButton = wrapper.getByTestId(preFix + "button-submit");
-  const newNameBad = "Ne";
+  it("Update submit should fail", async () => {
+    const submitButton = wrapper.getByTestId(preFix + "button-submit");
+    const profileName = "Ne";
+    const input = wrapper.getByTestId(preFix + "input_profile-name");
+    fireEvent.change(input, { target: { value: profileName } });
+    expect(input.value).toBe(profileName);
 
-  const input = wrapper.getByTestId(preFix + "input_profile-name");
-  fireEvent.change(input, { target: { value: newNameBad } });
-  expect(input.value).toBe(newNameBad);
+    fireEvent.click(submitButton);
+    await waitFor(() => {
+      expect(mockHooks.updateProfile).toHaveBeenCalledTimes(0);
+    });
 
-  fireEvent.click(submitButton);
-
-  waitFor(() => {
     expect(input).toHaveFocus();
   });
 });

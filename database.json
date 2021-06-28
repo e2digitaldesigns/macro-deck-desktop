@@ -11,10 +11,10 @@
     "port": "8585"
   },
   "active": {
-    "profileId": "BOEXVJyog",
-    "pageId": "UArAZooM75",
-    "buttonPadId": "wxOhtSUKF",
-    "actionId": "TA-LrgevLx"
+    "profileId": "0DQxP7uPj",
+    "pageId": "B_pwSa-dcf",
+    "buttonPadId": "",
+    "actionId": ""
   },
   "profiles": [
     {
@@ -24,6 +24,11 @@
     },
     {
       "_id": "GB2d9lnG6",
+      "profileName": "New Profile",
+      "buttonPads": 12
+    },
+    {
+      "_id": "0DQxP7uPj",
       "profileName": "New Profile",
       "buttonPads": 12
     }
@@ -43,6 +48,11 @@
       "profileId": "BOEXVJyog",
       "_id": "7xQiEvdNx",
       "order": 202106081304347
+    },
+    {
+      "profileId": "0DQxP7uPj",
+      "_id": "B_pwSa-dcf",
+      "order": 202106200827471
     }
   ],
   "buttonPads": [

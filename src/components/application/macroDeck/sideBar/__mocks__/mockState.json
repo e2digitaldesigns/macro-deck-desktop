@@ -1,0 +1,33 @@
+{
+  "setState": "",
+  "state": {
+    "userInformation": {
+      "_id": "",
+      "name": ""
+    },
+    "templateInformation": {
+      "sideBarState": "hello hello hello"
+    },
+    "settings": {},
+    "active": {
+      "profileId": "",
+      "buttonPadId": "",
+      "actionId": "",
+      "pageId": ""
+    },
+    "profiles": [
+      {
+        "_id": "the-id-001",
+        "profileName": "001 the profile name",
+        "buttonPads": 12
+      },
+      {
+        "_id": "the-id-002",
+        "profileName": "002 the profile name",
+        "buttonPads": 24
+      }
+    ],
+    "pages": [],
+    "buttonPads": []
+  }
+}

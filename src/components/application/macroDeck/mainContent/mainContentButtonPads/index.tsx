@@ -29,12 +29,15 @@ const MainContentButtonPads: React.FC<MainContentButtonPadsProps> = () => {
   };
 
   if (!globalData?.state?.active?.profileId) {
-    return <div></div>;
+    return <div data-testid="main-content-button-pads__null" />;
   }
 
   return (
     <>
-      <div className="button-pad-wrapper">
+      <div
+        className="button-pad-wrapper"
+        data-testid="main-content-button-pads__button-pad-wrapper"
+      >
         {_map(
           buttonPadArray,
           (m: number): React.ReactElement => (

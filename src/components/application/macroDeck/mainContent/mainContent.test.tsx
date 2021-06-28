@@ -9,4 +9,10 @@ describe("<Template Header Component/>", () => {
     const component = getByTestId("template-main-content-component");
     expect(component).toBeTruthy();
   });
+
+  it("Should render without errors", () => {
+    const { getByTestId } = render(<TemplateMainContent />);
+    const component = getByTestId("template-main-content-component");
+    expect(component).toMatchSnapshot();
+  });
 });
