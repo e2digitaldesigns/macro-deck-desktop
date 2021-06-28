@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Template Header Component/> Should render without errors 1`] = `
+<section
+  class="sidebar-section"
+  data-testid="template-sidebar-component"
+>
+  <div
+    class="profile-header-wrapper"
+    data-testid="template-sidebar-header"
+  >
+    <div
+      class="profile-header"
+    >
+      <div
+        class="icon prefix-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="FileCopyIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"
+          />
+        </svg>
+      </div>
+      <div>
+        Profiles (
+         
+        <span
+          data-testid="template-sidebar-header__profile-count"
+        >
+          2
+        </span>
+        )
+      </div>
+      <div
+        class="icon suffix-icon"
+        data-testid="template-sidebar-header__new-profile-button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddCircleOutlineIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="profile-search-wrapper"
+    />
+  </div>
+  <div
+    class="menu-item menu-item-inactive"
+    data-testid="template-sidebar-item__component"
+  >
+    <div
+      class="menu-item-button"
+      data-testid="template-sidebar-item__component-menu-item-button"
+    >
+      <div
+        class="menu-item-button-text"
+        data-testid="template-sidebar-item__button-text"
+      >
+        001 the profile name
+         (
+        12
+        )
+      </div>
+      <div
+        class="menu-item-button-edit"
+        data-testid="template-sidebar-item__button-edit"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="EditIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+          />
+        </svg>
+      </div>
+      <div
+        class="menu-item-button-remove"
+        data-testid="template-sidebar-item__button-remove"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="DeleteIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="menu-item-information false"
+      data-testid="template-sidebar-item__menu-item-information-wrapper"
+    >
+      <div
+        class="menu-item-infomation-inner"
+      >
+        Name:
+         
+        <input
+          data-testid="template-sidebar-item__input_profile-name"
+          name="profileName"
+          type="text"
+          value="001 the profile name"
+        />
+        <br />
+        ButtonPads:
+        <select
+          data-testid="template-sidebar-item__select-button-pads"
+          name="buttonPads"
+        >
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="12"
+          >
+            12
+          </option>
+          <option
+            value="15"
+          >
+            15
+          </option>
+          <option
+            value="24"
+          >
+            24
+          </option>
+          <option
+            value="32"
+          >
+            32
+          </option>
+        </select>
+        <br />
+        <button
+          class="menu-item-information-submit"
+          data-testid="template-sidebar-item__button-submit"
+        >
+          submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="menu-item menu-item-inactive"
+    data-testid="template-sidebar-item__component"
+  >
+    <div
+      class="menu-item-button"
+      data-testid="template-sidebar-item__component-menu-item-button"
+    >
+      <div
+        class="menu-item-button-text"
+        data-testid="template-sidebar-item__button-text"
+      >
+        002 the profile name
+         (
+        24
+        )
+      </div>
+      <div
+        class="menu-item-button-edit"
+        data-testid="template-sidebar-item__button-edit"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="EditIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+          />
+        </svg>
+      </div>
+      <div
+        class="menu-item-button-remove"
+        data-testid="template-sidebar-item__button-remove"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="DeleteIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="menu-item-information false"
+      data-testid="template-sidebar-item__menu-item-information-wrapper"
+    >
+      <div
+        class="menu-item-infomation-inner"
+      >
+        Name:
+         
+        <input
+          data-testid="template-sidebar-item__input_profile-name"
+          name="profileName"
+          type="text"
+          value="002 the profile name"
+        />
+        <br />
+        ButtonPads:
+        <select
+          data-testid="template-sidebar-item__select-button-pads"
+          name="buttonPads"
+        >
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="12"
+          >
+            12
+          </option>
+          <option
+            value="15"
+          >
+            15
+          </option>
+          <option
+            value="24"
+          >
+            24
+          </option>
+          <option
+            value="32"
+          >
+            32
+          </option>
+        </select>
+        <br />
+        <button
+          class="menu-item-information-submit"
+          data-testid="template-sidebar-item__button-submit"
+        >
+          submit
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;

@@ -1,15 +1,27 @@
 import "@testing-library/jest-dom";
 import { render, fireEvent, waitFor } from "@testing-library/react";
+import { BrowserRouter, Switch } from "react-router-dom";
 import TemplateHeader, { ITemplateHeader } from "./header";
+import { useElectron } from "./../../../hooks";
 
-const mockFunction = {
-  closeApplication: jest.fn(),
-  fullScreenToggleApplication: jest.fn(),
-  minimizeApplication: jest.fn()
+const mockHooks = {
+  ipcRender: jest.fn()
 };
 
-const testSetup = (props: ITemplateHeader = mockFunction) => {
-  return render(<TemplateHeader {...props} />);
+jest.mock("./../../../hooks", () => ({
+  useElectron: () => ({
+    ipcRender: mockHooks.ipcRender
+  })
+}));
+
+const testSetup = () => {
+  return render(
+    <BrowserRouter>
+      <Switch>
+        <TemplateHeader />{" "}
+      </Switch>
+    </BrowserRouter>
+  );
 };
 
 let container: any = null;
@@ -19,9 +31,15 @@ beforeEach(() => {
 
 afterEach(() => {
   container = null;
+  jest.clearAllMocks();
 });
 
 describe("<Template Header Component/>", () => {
+  it("Should match snapshot", () => {
+    const header = container.getByTestId("template-header-component");
+    expect(header).toMatchSnapshot();
+  });
+
   it("Should render without errors", () => {
     const header = container.getByTestId("template-header-component");
     expect(header).toBeTruthy();
@@ -37,9 +55,23 @@ describe("<Template Header Component/>", () => {
     expect(minimizeButton).toBeVisible();
   });
 
-  it("Should match snapshot", () => {
-    const header = container.getByTestId("template-header-component");
-    expect(header).toMatchSnapshot();
+  it("Should show fullScreen button", () => {
+    const fullScreenButton = container.getByTestId(
+      "template-header-full-screen-button"
+    );
+    expect(fullScreenButton).toBeVisible();
+  });
+
+  it("Should show minimize button", () => {
+    const minimizeButton = container.getByTestId(
+      "template-header-minimize-button"
+    );
+    expect(minimizeButton).toBeVisible();
+  });
+
+  it("Should show close button", () => {
+    const button = container.getByTestId("template-header-full-close-button");
+    expect(button).toBeVisible();
   });
 
   it("Should call fullScreenToggle", () => {
@@ -60,15 +92,25 @@ describe("<Template Header Component/>", () => {
     expect(fullScreenButton).toBeVisible();
   });
 
-  it("Should call minimizeApplication", () => {
-    const button = container.getByTestId("template-header-minimize-button");
-    expect(button).toBeVisible();
-    fireEvent.click(button);
+  it("Should call fullScreen IPC Render Hook", () => {
+    const fullScreenButton = container.getByTestId(
+      "template-header-full-screen-button"
+    );
+    fireEvent.click(fullScreenButton);
+
+    expect(mockHooks.ipcRender).toHaveBeenCalled();
   });
 
-  it("Should call closeApplication", () => {
+  it("Should call minimize IPC Render Hook", () => {
+    const button = container.getByTestId("template-header-minimize-button");
+    fireEvent.click(button);
+    expect(mockHooks.ipcRender).toHaveBeenCalled();
+  });
+
+  it("Should call close IPC Render Hook", () => {
     const button = container.getByTestId("template-header-full-close-button");
     expect(button).toBeVisible();
     fireEvent.click(button);
+    expect(mockHooks.ipcRender).toHaveBeenCalled();
   });
 });

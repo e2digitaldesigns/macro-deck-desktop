@@ -16,6 +16,7 @@ export interface iSideBarItem {
 
 const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
   const globalData = useGlobalData();
+
   const { activateProfile, updateProfile, deleteProfile } = useProfile();
   const profileNameRef: any = useRef();
 
@@ -31,10 +32,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
     event: React.FormEvent<HTMLDivElement>
   ): void => {
     event.stopPropagation();
-    if (globalData?.state?.active?.profileId === profile?._id) {
-      return;
-    }
-
+    if (editState.editing) return;
     profile?._id && activateProfile(profile?._id);
     setEditState({ ...editState, editing: false });
   };
@@ -50,11 +48,12 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
     event: React.FormEvent<HTMLDivElement>
   ): void => {
     event.stopPropagation();
-    deleteProfile(profile?._id);
 
     if (globalData?.state?.active?.profileId === profile?._id) {
       setEditState({ ...editState, editing: false });
     }
+
+    deleteProfile(profile?._id);
   };
 
   const handleProfileFormChange = (
@@ -73,6 +72,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
       await sideBarFormSchema.validate({
         ...editState
       });
+
       updateProfile(profile._id, editState);
     } catch (err) {
       toast.warning(err.errors[0]);
@@ -125,6 +125,7 @@ const SideBarItems: React.FC<iSideBarItem> = ({ profile }) => {
             editState.editing &&
             "menu-item-information-active"
           }`}
+          data-testid="template-sidebar-item__menu-item-information-wrapper"
         >
           <div className="menu-item-infomation-inner">
             Name:{" "}

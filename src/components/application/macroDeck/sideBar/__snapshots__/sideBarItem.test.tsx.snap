@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Template Header Component/> Should render without errors 1`] = `
+exports[`<SideBarItem/> Should render without errors 1`] = `
 <div
   class="menu-item menu-item-inactive"
   data-testid="template-sidebar-item__component"
@@ -13,9 +13,9 @@ exports[`<Template Header Component/> Should render without errors 1`] = `
       class="menu-item-button-text"
       data-testid="template-sidebar-item__button-text"
     >
-      the profile name
+      001 the profile name
        (
-      24
+      12
       )
     </div>
     <div
@@ -53,6 +53,7 @@ exports[`<Template Header Component/> Should render without errors 1`] = `
   </div>
   <div
     class="menu-item-information false"
+    data-testid="template-sidebar-item__menu-item-information-wrapper"
   >
     <div
       class="menu-item-infomation-inner"
@@ -63,7 +64,7 @@ exports[`<Template Header Component/> Should render without errors 1`] = `
         data-testid="template-sidebar-item__input_profile-name"
         name="profileName"
         type="text"
-        value="the profile name"
+        value="001 the profile name"
       />
       <br />
       ButtonPads:

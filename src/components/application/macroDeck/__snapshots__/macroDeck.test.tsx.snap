@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MacroDeck Component/> Should match snapshot 1`] = `
+<div
+  class="application-template-wrapper"
+  data-testid="application-template-wrapper"
+>
+  <div />
+  <div
+    class="template-side-bar-left"
+  >
+    <section
+      class="sidebar-section"
+      data-testid="template-sidebar-component"
+    >
+      <div
+        class="profile-header-wrapper"
+        data-testid="template-sidebar-header"
+      >
+        <div
+          class="profile-header"
+        >
+          <div
+            class="icon prefix-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+              data-testid="FileCopyIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"
+              />
+            </svg>
+          </div>
+          <div>
+            Profiles (
+             
+            <span
+              data-testid="template-sidebar-header__profile-count"
+            >
+              0
+            </span>
+            )
+          </div>
+          <div
+            class="icon suffix-icon"
+            data-testid="template-sidebar-header__new-profile-button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+              data-testid="AddCircleOutlineIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="profile-search-wrapper"
+        />
+      </div>
+    </section>
+  </div>
+  <div />
+  <div
+    class="template-main-content"
+    data-testid="template-main-content-component"
+  >
+    <div
+      data-testid="main-content-button-pads__null"
+    />
+    <div />
+    <div />
+  </div>
+  <div />
+</div>
+`;

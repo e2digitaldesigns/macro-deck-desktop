@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 export { default as useGlobalData } from "./useGlobalDataHook";
 
 export { default as useActions } from "./useActionsHook";

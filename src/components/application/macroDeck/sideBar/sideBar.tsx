@@ -11,20 +11,18 @@ const TemplateSideBar: React.FC<ITemplateSideBarProps> = () => {
   const globalData = useGlobalData();
 
   return (
-    <>
-      <section
-        className="sidebar-section"
-        data-testid="template-sidebar-component"
-      >
-        <TemplateSideBarHeader />
+    <section
+      className="sidebar-section"
+      data-testid="template-sidebar-component"
+    >
+      <TemplateSideBarHeader />
 
-        {globalData?.state?.profiles?.map(
-          (m: IntProfile): React.ReactElement => (
-            <SideBarItem key={m._id} profile={m} />
-          )
-        )}
-      </section>
-    </>
+      {globalData?.state?.profiles?.map(
+        (m: IntProfile): React.ReactElement => (
+          <SideBarItem key={m._id} profile={m} />
+        )
+      )}
+    </section>
   );
 };
 

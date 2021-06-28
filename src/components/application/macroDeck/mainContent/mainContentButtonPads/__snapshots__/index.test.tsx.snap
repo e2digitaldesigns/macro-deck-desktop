@@ -1,0 +1,1189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Template Header Component/> Should match 0 pads snapshot 1`] = `
+<div
+  class="button-pad-wrapper"
+  data-testid="main-content-button-pads__button-pad-wrapper"
+>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`<Template Header Component/> Should match 32 pads snapshot 1`] = `
+<div
+  class="button-pad-wrapper"
+  data-testid="main-content-button-pads__button-pad-wrapper"
+>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Template Header Component/> Should match snapshot 1`] = `
+<div
+  class="button-pad-wrapper"
+  data-testid="main-content-button-pads__button-pad-wrapper"
+>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div
+      class="button-pad-inner "
+    >
+      <div
+        class="emptyButtonPad"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+          data-testid="AddBoxIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+  <div
+    class="button-pad"
+  >
+    <div />
+  </div>
+</div>
+`;

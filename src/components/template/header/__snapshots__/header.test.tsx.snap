@@ -2,31 +2,44 @@
 
 exports[`<Template Header Component/> Should match snapshot 1`] = `
 <header
-  class="sc-bdfBwQ duVZaW"
+  class="sc-bdfBwQ cujGLC"
   data-testid="template-header-component"
 >
   <ul
-    class="sc-gsTCUz jiuGXF"
+    class="sc-gsTCUz dOApmM"
     data-testid="template-header-menu"
   >
     <li>
-      File
+      <a
+        href="/home"
+      >
+        Home
+      </a>
     </li>
     <li>
-      Edit
+      <a
+        href="/macroDeck"
+      >
+        MacroDeck
+      </a>
     </li>
     <li>
-      Selection
+      <a
+        href="/settings"
+      >
+        Settings
+      </a>
     </li>
     <li>
-      View
-    </li>
-    <li>
-      Go
+      <a
+        href="/settings"
+      >
+        Help
+      </a>
     </li>
   </ul>
   <ul
-    class="sc-gsTCUz sc-dlfnbm jiuGXF lTaWZ"
+    class="sc-gsTCUz sc-dlfnbm dOApmM dFvJeL"
     data-testid="template-header-options"
   >
     <li
@@ -49,7 +62,7 @@ exports[`<Template Header Component/> Should match snapshot 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
         data-testid="FullscreenIcon"
         focusable="false"
         viewBox="0 0 24 24"

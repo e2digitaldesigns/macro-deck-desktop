@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Template Header Component/> Should render without errors 1`] = `
+<div
+  class="template-main-content"
+  data-testid="template-main-content-component"
+>
+  <div
+    data-testid="main-content-button-pads__null"
+  />
+  <div />
+  <div />
+</div>
+`;
