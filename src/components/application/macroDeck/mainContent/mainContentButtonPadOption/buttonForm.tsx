@@ -24,6 +24,11 @@ const ButtonForm: React.FC<IntButtonForm> = () => {
     }
   }, [buttonPad, buttonPad?._id]);
 
+  useEffect(() => {
+    globalData?.state?.temp?.newIcon &&
+      setState(state => ({ ...state, icon: globalData.state.temp.newIcon }));
+  }, [globalData.state.temp]);
+
   const handleFormChange = (
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -49,6 +54,8 @@ const ButtonForm: React.FC<IntButtonForm> = () => {
   };
 
   const disabled = !globalData?.state?.active?.buttonPadId;
+
+  console.log(58, state?.icon);
 
   return (
     <>

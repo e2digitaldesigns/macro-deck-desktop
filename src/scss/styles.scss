@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
+@mixin scrollBars {
+  ::-webkit-scrollbar {
+    width: 0.625em;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1f1f1f;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #373737;
+  }
+}
+
 @import "./reset";
 @import "./variables";
 @import "./template";

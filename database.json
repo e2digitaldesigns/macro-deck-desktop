@@ -3,6 +3,9 @@
     "_id": "",
     "name": ""
   },
+  "temp": {
+    "newIcon": "account_box"
+  },
   "templateInformation": {
     "sideBarState": ""
   },
@@ -12,7 +15,7 @@
   },
   "active": {
     "profileId": "0DQxP7uPj",
-    "pageId": "B_pwSa-dcf",
+    "pageId": "8c47bfe2-6728-4292-99aa-515a09bd04e8",
     "buttonPadId": "",
     "actionId": ""
   },
@@ -53,6 +56,11 @@
       "profileId": "0DQxP7uPj",
       "_id": "B_pwSa-dcf",
       "order": 202106200827471
+    },
+    {
+      "profileId": "0DQxP7uPj",
+      "_id": "8c47bfe2-6728-4292-99aa-515a09bd04e8",
+      "order": 202107015324168
     }
   ],
   "buttonPads": [
@@ -196,6 +204,18 @@
       "text": "New Button",
       "textColor": "#dddddd",
       "icon": "",
+      "iconColor": "#333333",
+      "image": "",
+      "bgColor": "#333333"
+    },
+    {
+      "profileId": "0DQxP7uPj",
+      "pageId": "B_pwSa-dcf",
+      "_id": "2ee9f1ee-c7f4-4ada-b839-eb68aa1385e2",
+      "buttonPadNum": 1,
+      "text": "New Button",
+      "textColor": "#dddddd",
+      "icon": "account_box",
       "iconColor": "#333333",
       "image": "",
       "bgColor": "#333333"
@@ -397,6 +417,40 @@
       "order": 0,
       "action": "md",
       "subAction": "",
+      "seconds": 0,
+      "url": "",
+      "text": "",
+      "scene": "",
+      "layer": "",
+      "path": "",
+      "page": "",
+      "profile": ""
+    },
+    {
+      "profileId": "0DQxP7uPj",
+      "pageId": "B_pwSa-dcf",
+      "buttonPadId": "2ee9f1ee-c7f4-4ada-b839-eb68aa1385e2",
+      "_id": "76237414-8f99-427c-b181-ded75ffa5aa1",
+      "order": 0,
+      "action": "md",
+      "subAction": "mdHome",
+      "seconds": 0,
+      "url": "",
+      "text": "",
+      "scene": "",
+      "layer": "",
+      "path": "",
+      "page": "",
+      "profile": ""
+    },
+    {
+      "profileId": "0DQxP7uPj",
+      "pageId": "B_pwSa-dcf",
+      "buttonPadId": "2ee9f1ee-c7f4-4ada-b839-eb68aa1385e2",
+      "_id": "e6062fa6-940d-4e7d-b10a-59ccadf90918",
+      "order": 0,
+      "action": "md",
+      "subAction": "mdPage",
       "seconds": 0,
       "url": "",
       "text": "",
