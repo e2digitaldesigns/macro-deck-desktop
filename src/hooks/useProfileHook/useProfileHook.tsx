@@ -3,7 +3,6 @@ import _filter from "lodash/filter";
 import _find from "lodash/find";
 import _findIndex from "lodash/findIndex";
 import _sortBy from "lodash/sortBy";
-import { v4 as uuidv4 } from "uuid";
 
 import { useGlobalData } from "..";
 import {

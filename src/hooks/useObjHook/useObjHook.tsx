@@ -1,5 +1,5 @@
-import { v4 as uuidv4 } from "uuid";
 import timestamp from "time-stamp";
+import { idGenerator } from "../../utils";
 
 import {
   IntActions,
@@ -21,7 +21,7 @@ const useObjHooks = (): IntUseObjHooks => {
       profileId: "",
       pageId: "",
       buttonPadId: "",
-      _id: _id || uuidv4(),
+      _id: _id || idGenerator(),
       order: 0,
       action: "md",
       subAction: "",
@@ -41,7 +41,7 @@ const useObjHooks = (): IntUseObjHooks => {
     return {
       profileId: "",
       pageId: "string",
-      _id: _id || uuidv4(),
+      _id: _id || idGenerator(),
       buttonPadNum: 0,
       text: "New Button",
       textColor: "#dddddd",
@@ -55,14 +55,14 @@ const useObjHooks = (): IntUseObjHooks => {
   const pageObj: IntUseObjHooks["pageObj"] = _id => {
     return {
       profileId: "",
-      _id: _id || uuidv4(),
+      _id: _id || idGenerator(),
       order: Number(timestamp("YYYYMMDDmmssms"))
     };
   };
 
   const profileObj: IntUseObjHooks["profileObj"] = _id => {
     return {
-      _id: _id || uuidv4(),
+      _id: _id || idGenerator(),
       profileName: "New Profile",
       buttonPads: 12
     };

@@ -62,7 +62,6 @@ export interface IntActions {
 }
 export interface IntGlobalContextInterface {
   userInformation: IntUserInformation;
-  temp: any;
   templateInformation: IntTemplateInformation;
   settings: any;
   active: IntActive;
