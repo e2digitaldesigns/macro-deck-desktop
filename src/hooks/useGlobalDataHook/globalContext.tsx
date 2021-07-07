@@ -3,7 +3,6 @@ import { IntGlobalData, IntGlobalContextInterface } from "../../types";
 
 export const defaultState: IntGlobalContextInterface = {
   userInformation: { _id: "", name: "" },
-  temp: { newIcon: "" },
   templateInformation: { sideBarState: "" },
   settings: {},
   active: {

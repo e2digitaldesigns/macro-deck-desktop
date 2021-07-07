@@ -3,16 +3,16 @@ import * as React from "react";
 import MainContentButtonPads from "./mainContentButtonPads";
 import MainContentButtonPadOptions from "./mainContentButtonPadOption";
 import OptionHeader from "./mainContentButtonPadOption/optionHeader/optionHeader";
-import IconSelector from "./mainContentButtonPadOption/iconSelector/iconSelector";
+import IconSelectorWrapper from "./mainContentButtonPadOption/iconSelector/iconSelector";
+
+import { useAppData } from "../../../../hooks";
 
 export interface MainContentProps {}
 
 const MainContent: React.FC<MainContentProps> = () => {
-  const [showIconSelector, setShowIconSelector] = React.useState<boolean>(true);
-
-  const handleShowIconSelector = (state: boolean): void => {
-    if (state !== showIconSelector) setShowIconSelector(state);
-  };
+  const { appState } = useAppData();
+  console.clear();
+  console.log(14, appState);
 
   return (
     <>
@@ -20,8 +20,8 @@ const MainContent: React.FC<MainContentProps> = () => {
         className="template-main-content"
         data-testid="template-main-content-component"
       >
-        {showIconSelector ? (
-          <IconSelector close={() => handleShowIconSelector(false)} />
+        {appState?.iconSelector?.isVisible ? (
+          <IconSelectorWrapper />
         ) : (
           <MainContentButtonPads />
         )}

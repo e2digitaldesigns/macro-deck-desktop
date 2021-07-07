@@ -4,6 +4,9 @@ import {
   defaultState,
   GlobalContext
 } from "./hooks/useGlobalDataHook/globalContext";
+
+import { appDefaultState, AppContext } from "./hooks/useAppDataHook/appContext";
+
 import { IntGlobalContextInterface } from "./types";
 import TemplateWrapper from "./components/template/template";
 import "./scss/styles.scss";
@@ -18,7 +21,18 @@ function App() {
   const [state, setState] = useState<IntGlobalContextInterface>({
     ...defaultState
   });
-  const value = useMemo(() => ({ state, setState }), [state, setState]);
+
+  const [appState, setAppState] = useState<any>({
+    ...appDefaultState
+  });
+
+  const globalValue = useMemo(() => ({ state, setState }), [state, setState]);
+
+  const tempValue = useMemo(
+    () => ({ appState, setAppState }),
+    [appState, setAppState]
+  );
+
   const { loadAppData, saveAppData } = useElectron();
   const checkers: any = useRef({
     profiles: state.profiles,
@@ -92,10 +106,12 @@ function App() {
 
   return (
     <>
-      <GlobalContext.Provider value={value}>
-        <div className="App">
-          <TemplateWrapper />
-        </div>
+      <GlobalContext.Provider value={globalValue}>
+        <AppContext.Provider value={tempValue}>
+          <div className="App">
+            <TemplateWrapper />
+          </div>
+        </AppContext.Provider>
       </GlobalContext.Provider>
     </>
   );

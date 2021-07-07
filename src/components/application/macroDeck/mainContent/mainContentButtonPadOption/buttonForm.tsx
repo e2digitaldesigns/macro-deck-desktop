@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useButton, useGlobalData } from "../../../../../hooks";
+import { useAppData, useButton, useGlobalData } from "../../../../../hooks";
 import SETTINGS from "../../../../../settings/system.json";
 import ICONS from "../../../../../settings/icons.json";
 import ButtonFormSchema from "./buttonFormSchema";
 import { toast } from "react-toastify";
 import _map from "lodash/map";
+import _cloneDeep from "lodash/cloneDeep";
 
 export interface IntButtonForm {}
 
 const ButtonForm: React.FC<IntButtonForm> = () => {
   const globalData = useGlobalData();
+  const { appState, setAppState } = useAppData();
   const { getActiveButton, updateButtonPad } = useButton();
   const buttonPad = getActiveButton();
   const [state, setState] = useState(SETTINGS.DEFAULT_STATE.BUTTON_PADS);
@@ -25,9 +27,9 @@ const ButtonForm: React.FC<IntButtonForm> = () => {
   }, [buttonPad, buttonPad?._id]);
 
   useEffect(() => {
-    globalData?.state?.temp?.newIcon &&
-      setState(state => ({ ...state, icon: globalData.state.temp.newIcon }));
-  }, [globalData.state.temp]);
+    appState.iconSelector.icon &&
+      setState(state => ({ ...state, icon: appState.iconSelector.icon }));
+  }, [appState.iconSelector.icon]);
 
   const handleFormChange = (
     event:
@@ -53,9 +55,13 @@ const ButtonForm: React.FC<IntButtonForm> = () => {
     }
   };
 
-  const disabled = !globalData?.state?.active?.buttonPadId;
+  const handleOpen = () => {
+    const state = _cloneDeep(appState);
+    state.iconSelector.isVisible = true;
+    setAppState({ ...state });
+  };
 
-  console.log(58, state?.icon);
+  const disabled = !globalData?.state?.active?.buttonPadId;
 
   return (
     <>
@@ -80,7 +86,9 @@ const ButtonForm: React.FC<IntButtonForm> = () => {
           </div>
 
           <div className="color-suffix">
-            <label htmlFor="icon">Icon:</label>
+            <label htmlFor="icon" onClick={handleOpen}>
+              Icon:
+            </label>
             {/* <input
               disabled={disabled}
               name="icon"
